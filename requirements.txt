@@ -1,0 +1,5 @@
+jira
+pyyaml
+click
+keyring
+md-to-pdf

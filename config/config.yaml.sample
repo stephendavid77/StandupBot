@@ -1,0 +1,38 @@
+# JiraSprintHealth Configuration
+# ----------------------------------
+# Copy this file to config.yaml and fill in your details.
+
+# Jira Connection Details
+jira:
+  server: "https://your-company.atlassian.net"
+  user: "your-email@example.com"
+  story_points_field: "customfield_10016"
+
+# Project Configuration
+projects:
+  - project_key: "PROJ1"
+    board_id: 123
+  - project_key: "PROJ2"
+    board_id: 456
+    guidelines:
+      max_overdue_days: 3
+
+# Sprint Health Guidelines
+guidelines:
+  max_unestimated_pct: 10
+  max_unassigned_pct: 5
+  max_overdue_days: 5
+  stale_issue_days: 7
+  blocker_labels: ["blocker", "impediment"]
+
+# Run Settings
+# -----------------
+# These settings control the default behavior of the application.
+# They can be overridden by command-line flags.
+run_settings:
+  # Default report type ('daily' or 'full')
+  report_type: "daily"
+  # Whether to export the report by default
+  export: true
+  # Whether to skip PDF generation when exporting
+  skip_pdf: false

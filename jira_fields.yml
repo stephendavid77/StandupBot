@@ -1,0 +1,1196 @@
+aggregateprogress: "\u03A3 Progress"
+aggregatetimeestimate: "\u03A3 Remaining Estimate"
+aggregatetimeoriginalestimate: "\u03A3 Original Estimate"
+aggregatetimespent: "\u03A3 Time Spent"
+assignee: Assignee
+attachment: Attachment
+comment: Comment
+components: Components
+created: Created
+creator: Creator
+customfield_10000: Development
+customfield_10001: Team
+customfield_10002: Organizations
+customfield_10003: Approvers
+customfield_10004: Impact
+customfield_10005: Change type
+customfield_10006: Change risk
+customfield_10007: Change reason
+customfield_10008: Actual start
+customfield_10009: Actual end
+customfield_10010: Request Type
+customfield_10011: Epic Name
+customfield_10012: Epic Status
+customfield_10013: Epic Color
+customfield_10014: Epic Link
+customfield_10015: Start date
+customfield_10016: Story point estimate
+customfield_10017: Issue color
+customfield_10018: Parent Link
+customfield_10019: Rank
+customfield_10020: Sprint
+customfield_10021: Flagged
+customfield_10022: Target start
+customfield_10023: Target end
+customfield_10024: '[CHART] Date of First Response'
+customfield_10025: '[CHART] Time in Status'
+customfield_10026: Locked forms
+customfield_10027: Open forms
+customfield_10028: Submitted forms
+customfield_10029: Total forms
+customfield_10030: Vulnerability
+customfield_10031: Design
+customfield_10032: Story Points
+customfield_10033: Severity
+customfield_10034: Acceptance Criteria
+customfield_10035: Holiday 2X
+customfield_10036: Service Now Incident
+customfield_10037: Performance Parameters
+customfield_10038: Performance Testing
+customfield_10039: Product Owner/Manager
+customfield_10040: DEV Assignee
+customfield_10041: QE Assignee
+customfield_10042: Found In
+customfield_10043: Blocker Type
+customfield_10044: Selling Channel
+customfield_10045: Sub-Domain
+customfield_10046: ServiceNow URL
+customfield_10047: Technical Details
+customfield_10048: Action
+customfield_10049: Reason
+customfield_10050: Resolution Notes
+customfield_10051: Knowledge Candidate
+customfield_10052: Pending Reason
+customfield_10053: Tech Lead
+customfield_10054: SWAG
+customfield_10055: Confidence
+customfield_10056: Requirements
+customfield_10057: DevelopmentM
+customfield_10058: Resources
+customfield_10059: Savings
+customfield_10060: Status Summary
+customfield_10061: Risk
+customfield_10062: Issues
+customfield_10063: Story Readiness
+customfield_10064: Platforms
+customfield_10065: Site Components
+customfield_10066: Tech Debt Type
+customfield_10067: Key Result(s)
+customfield_10068: Release Notes
+customfield_10069: Clarity Project ID
+customfield_10070: Project Site
+customfield_10071: Deployment
+customfield_10072: Portfolio
+customfield_10073: Domain
+customfield_10074: Bug Type
+customfield_10075: RCA Category
+customfield_10076: Rootcause(RCA)
+customfield_10077: Benefit
+customfield_10078: Planning Quarter
+customfield_10079: Requested Due Date
+customfield_10080: Key Stakeholders
+customfield_10081: Sprint Label
+customfield_10082: Use Case
+customfield_10083: Feature
+customfield_10084: Epic/Theme
+customfield_10085: TechSpec and Review URL
+customfield_10086: Destination URL
+customfield_10087: External issue ID
+customfield_10088: External issue ID (migrated)
+customfield_10089: 'Percentage Complete:'
+customfield_10090: Dependency Agreed
+customfield_10091: 'Cost:'
+customfield_10092: 'Quality:'
+customfield_10093: 'Schedule:'
+customfield_10094: 'Scope:'
+customfield_10095: 'EV Weightage:'
+customfield_10096: 'Review Reworked:'
+customfield_10097: 'Sign Off Reworked:'
+customfield_10098: 'Earn As you Burn:'
+customfield_10099: 'Execution Status:'
+customfield_10100: 'Is Bug Reopened:'
+customfield_10101: 'Review 1 Status:'
+customfield_10102: 'Approval 1 Status:'
+customfield_10103: Team.
+customfield_10104: Stage
+customfield_10105: Business Impact
+customfield_10106: Requested Start
+customfield_10107: QA Test Cases URL
+customfield_10108: Experimentation Details
+customfield_10109: Backout Plan
+customfield_10110: Requested Completion
+customfield_10111: Work Type
+customfield_10112: Integration / Perf Testing
+customfield_10113: Contract Due Date
+customfield_10114: Test Plan / Case URL
+customfield_10115: Existing URL
+customfield_10116: Production URL
+customfield_10117: Test URL
+customfield_10118: Owners
+customfield_10119: Resolution Date
+customfield_10120: Live Date
+customfield_10121: FOB Area
+customfield_10122: 'Requester Email ID:'
+customfield_10123: 'Raised By:'
+customfield_10124: Vendor Onboard Status
+customfield_10125: GXS
+customfield_10126: Product Stream
+customfield_10127: Map
+customfield_10128: UPC Count
+customfield_10129: Image Links
+customfield_10130: DUNS Number
+customfield_10131: DVN Number
+customfield_10132: GMM
+customfield_10133: Vendor Name
+customfield_10134: Vendor Contact Email
+customfield_10135: Brand Name
+customfield_10136: Brand Mapped?
+customfield_10137: SSID
+customfield_10138: Merchant Lead
+customfield_10139: Additional Users
+customfield_10140: Blocker Source
+customfield_10141: VLL Audit UPC Count
+customfield_10142: MIO UPCs Added
+customfield_10143: Approved UPC Count
+customfield_10144: Item(s)
+customfield_10145: Discipline
+customfield_10146: MAIN Consumer
+customfield_10147: Priority
+customfield_10148: 'Milestone Type:'
+customfield_10149: 'Internal OR External:'
+customfield_10150: 'Contractual?:'
+customfield_10151: 'Responsible Organization:'
+customfield_10152: 'Baseline Closure:'
+customfield_10153: 'Target Date:'
+customfield_10154: 'External Reference:'
+customfield_10155: 'Status Narrative:'
+customfield_10156: 'Actual Closure:'
+customfield_10157: 'Step Description:'
+customfield_10158: 'Expected Result:'
+customfield_10159: 'Actual Result:'
+customfield_10160: 'Executive Summary:'
+customfield_10161: 'Current Week Progress:'
+customfield_10162: 'Planned For Upcoming Week:'
+customfield_10163: 'Decisions and Dependencies:'
+customfield_10164: 'Date:'
+customfield_10165: 'Overall RAG Flag:'
+customfield_10166: 'Scope RAG Flag:'
+customfield_10167: 'Schedule RAG Flag:'
+customfield_10168: 'Resource RAG Flag:'
+customfield_10169: 'Risk RAG Flag:'
+customfield_10170: 'Issues RAG Flag:'
+customfield_10171: 'Test Case Type:'
+customfield_10172: 'Test Case Cycle:'
+customfield_10173: 'Test Case Priority:'
+customfield_10174: 'Planned Execution Date:'
+customfield_10175: 'Actual Execution Date:'
+customfield_10176: Date Risk Expires
+customfield_10177: Owner
+customfield_10178: 'Escalation Level:'
+customfield_10179: 'Raised Date:'
+customfield_10180: 'Impact:'
+customfield_10181: 'Probability:'
+customfield_10182: 'Risk Category:'
+customfield_10183: 'Risk Sub Category:'
+customfield_10184: 'Mitigation Plan:'
+customfield_10185: 'Contingency Plan:'
+customfield_10186: 'Baseline Mitigation Plan Close:'
+customfield_10187: 'Target Mitigation Plan Close:'
+customfield_10188: 'Baseline Start:'
+customfield_10189: 'Start Date:'
+customfield_10190: 'Closure Comment:'
+customfield_10191: 'Actual Start:'
+customfield_10192: Environment Details
+customfield_10193: 'Test Type:'
+customfield_10194: 'Stage Found:'
+customfield_10195: 'Defect Priority:'
+customfield_10196: 'Severity:'
+customfield_10197: 'Stage Introduced:'
+customfield_10198: 'Root Cause:'
+customfield_10199: 'Actual Testing Result:'
+customfield_10200: 'Actual Fix:'
+customfield_10201: 'Resolved Reason:'
+customfield_10202: 'Target Analysis Completion:'
+customfield_10203: 'RICEFW Type:'
+customfield_10204: 'Category:'
+customfield_10205: 'RICEF ID:'
+customfield_10206: 'RICEFW Priority:'
+customfield_10207: 'Existing OR New:'
+customfield_10208: 'Baseline Scope:'
+customfield_10209: 'Application:'
+customfield_10210: 'Module:'
+customfield_10211: 'Data Object:'
+customfield_10212: 'Source System:'
+customfield_10213: 'Destination System:'
+customfield_10214: 'Scope: (migrated)'
+customfield_10215: 'Complexity:'
+customfield_10216: 'Country:'
+customfield_10217: 'Solution Scope:'
+customfield_10218: 'Solution Complexity:'
+customfield_10219: 'Solution Country:'
+customfield_10220: 'Linked EPIC State:'
+customfield_10221: 'Identified From:'
+customfield_10222: 'Deliverable Type:'
+customfield_10223: 'Baseline Draft Completion:'
+customfield_10224: 'Baseline Review Completion:'
+customfield_10225: 'Target Draft Completion:'
+customfield_10226: 'Target Review Completion:'
+customfield_10227: 'Reviewer 1:'
+customfield_10228: 'Approver 1:'
+customfield_10229: 'RAGB Status:'
+customfield_10230: 'Review Rejection Comments:'
+customfield_10231: 'SignOff Rejection Comments:'
+customfield_10232: 'Rework Comments:'
+customfield_10233: 'Document Link:'
+customfield_10234: 'Actual Draft Completion:'
+customfield_10235: 'Actual Review Completion:'
+customfield_10236: 'Drafted By:'
+customfield_10237: 'Assumption Due Until:'
+customfield_10238: 'Assumption Source:'
+customfield_10239: 'Assumption Impact:'
+customfield_10240: 'Assumption Comments:'
+customfield_10241: 'Business Benefit:'
+customfield_10242: 'Sponsor:'
+customfield_10243: 'Workaround:'
+customfield_10244: 'Workaround Detail:'
+customfield_10245: 'Cross Workstream impact:'
+customfield_10246: 'Initial Benefit Assessment Finding:'
+customfield_10247: 'Final Benefit Assessment Finding:'
+customfield_10248: 'Baseline Analysis Completion:'
+customfield_10249: 'Estimated Cost:'
+customfield_10250: 'Approved Cost:'
+customfield_10251: 'Number of approved changes to requirements:'
+customfield_10252: 'Initial Impact Assessment Finding:'
+customfield_10253: 'Detailed Impact Assessment Finding:'
+customfield_10254: 'Review Update:'
+customfield_10255: 'Actual Analysis Completion:'
+customfield_10256: 'Next CAB Date:'
+customfield_10257: 'Decision Taken Date:'
+customfield_10258: 'Issue Category:'
+customfield_10259: 'Issue Sub Category:'
+customfield_10260: 'Resolution Plan:'
+customfield_10261: 'Decision Type:'
+customfield_10262: 'KDD Criticality:'
+customfield_10263: 'Decision Taker:'
+customfield_10264: 'Decision Category:'
+customfield_10265: 'Why this decision is needed upfront:'
+customfield_10266: 'Business Process Hierarchy 1:'
+customfield_10267: 'Business Process Hierarchy 2:'
+customfield_10268: 'Business Process Hierarchy 3:'
+customfield_10269: 'BPH Scope:'
+customfield_10270: 'Requirement Type:'
+customfield_10271: 'Requirement ID:'
+customfield_10272: 'Sign Off By:'
+customfield_10273: 'Global or Local:'
+customfield_10274: 'Impacted Area:'
+customfield_10275: 'Business Priority:'
+customfield_10276: 'Requirement Created Date:'
+customfield_10277: 'Fit or Gap:'
+customfield_10278: 'Solution Category:'
+customfield_10279: 'Impact Level:'
+customfield_10280: 'Impact if not delivered on Time:'
+customfield_10281: 'Required By Date:'
+customfield_10282: 'Required From Workstream:'
+customfield_10284: 'In Sign Off Entry Date:'
+customfield_10285: Source URL
+customfield_10286: Total Days Spent
+customfield_10287: Root Cause (EPS)
+customfield_10288: Request Type (migrated)
+customfield_10289: Contact Email
+customfield_10290: Confidence Duplicate
+customfield_10291: Requirements Duplicate
+customfield_10292: Development Duplicate
+customfield_10293: Resources Duplicate
+customfield_10294: '# of Master Contracts on Smart Sheet'
+customfield_10295: '# of Master Contracts Dropped'
+customfield_10296: Date of First Response
+customfield_10298: Detected in Cycle
+customfield_10299: Vendor(s)
+customfield_10300: Contract Request Type
+customfield_10301: Private Brand Name
+customfield_10302: FOB
+customfield_10303: Dept
+customfield_10304: Contract R1 ETA
+customfield_10305: '# of R1 Master Contracts'
+customfield_10306: '# of OP Master Contracts'
+customfield_10307: List of Blockers/Errors
+customfield_10308: Blocker Reason
+customfield_10309: Target Sprint
+customfield_10310: Comments
+customfield_10311: Fix Build
+customfield_10312: Java Service
+customfield_10313: Mainframe Function
+customfield_10314: Issue Build
+customfield_10315: MAPS
+customfield_10316: Development Category
+customfield_10317: HPQC Defect Number
+customfield_10319: Steps To Reproduce
+customfield_10320: Security Group
+customfield_10321: Status Summary 2
+customfield_10322: Application/Initiative
+customfield_10323: Project Code
+customfield_10324: Business Reason
+customfield_10325: Category
+customfield_10326: Data-Related Issue
+customfield_10328: Owned/VDF Ticket
+customfield_10329: 'DIV. #'
+customfield_10330: 'Dept #'
+customfield_10331: 'Vendor #'
+customfield_10332: Pages Setup
+customfield_10333: UPC's Dropped Count
+customfield_10334: Blocker Reason - Level 1
+customfield_10335: Blocker Reason - Level 2
+customfield_10336: Count of Blockers - Level 1
+customfield_10337: Count of Blockers - Level 2
+customfield_10338: SSID - Pages Completed
+customfield_10339: SSID - Pages Pending Information
+customfield_10340: Previous Issue Key
+customfield_10342: Previous Issue Key
+customfield_10343: Request participants
+customfield_10344: Configuration Template
+customfield_10345: Application & Request Type
+customfield_10346: uuid
+customfield_10347: Location
+customfield_10348: Dependency Level
+customfield_10349: Provider Portfolio
+customfield_10350: Provider Domain
+customfield_10351: Provider Team
+customfield_10352: Provider Point of Contact
+customfield_10353: Project overview key
+customfield_10354: Project overview status
+customfield_10355: Tech Debt Type (migrated)
+customfield_10356: 'Severity: (migrated)'
+customfield_10357: List of Blockers/Errors (migrated)
+customfield_10358: Key Result(s) (migrated)
+customfield_10359: 'Stage Introduced: (migrated)'
+customfield_10360: Detected in Cycle (migrated)
+customfield_10361: Start Date Time
+customfield_10363: Release Notes (migrated)
+customfield_10364: 'Root Cause: (migrated)'
+customfield_10365: Date of First Response (migrated)
+customfield_10366: Requirement Description
+customfield_10367: 'GoLive Approvers '
+customfield_10368: Clarity Project ID (migrated)
+customfield_10369: 'Actual Testing Result: (migrated)'
+customfield_10370: Vendor(s) (migrated)
+customfield_10371: Impact (migrated)
+customfield_10372: Project Site (migrated)
+customfield_10373: 'Actual Fix: (migrated)'
+customfield_10374: Comments (migrated)
+customfield_10375: Change type (migrated)
+customfield_10376: Deployment (migrated)
+customfield_10377: 'Resolved Reason: (migrated)'
+customfield_10378: Fix Build (migrated)
+customfield_10379: QE Capabilities
+customfield_10380: Change risk (migrated)
+customfield_10381: Bug Type (migrated)
+customfield_10382: 'Target Analysis Completion: (migrated)'
+customfield_10384: Customer Impacting
+customfield_10385: Change reason (migrated)
+customfield_10386: RCA Category (migrated)
+customfield_10387: 'RICEFW Type: (migrated)'
+customfield_10389: Customer Impact Description
+customfield_10390: Actual start (migrated)
+customfield_10391: Rootcause(RCA) (migrated)
+customfield_10392: 'Category: (migrated)'
+customfield_10393: Blocker Reason (migrated)
+customfield_10394: Previous Issue Key (migrated)
+customfield_10395: Actual end (migrated)
+customfield_10396: Benefit (migrated)
+customfield_10397: 'RICEF ID: (migrated)'
+customfield_10398: MAPS (migrated)
+customfield_10399: Is Regression Eligible
+customfield_10401: 'RICEFW Priority: (migrated)'
+customfield_10402: Issue Build (migrated)
+customfield_10403: Regression Priority
+customfield_10404: PENDING_DELETION
+customfield_10405: 'Existing OR New: (migrated)'
+customfield_10407: Is Automation Eligible
+customfield_10408: 'Document Link: (migrated)'
+customfield_10409: 'Baseline Scope: (migrated)'
+customfield_10411: Automation Repository
+customfield_10412: Discipline (migrated)
+customfield_10413: 'Application: (migrated)'
+customfield_10415: Manual Test Case Category
+customfield_10416: MAIN Consumer (migrated)
+customfield_10417: 'Module: (migrated)'
+customfield_10419: Test Type
+customfield_10420: Vendor Onboard Status (migrated)
+customfield_10421: 'Data Object: (migrated)'
+customfield_10423: Type of Test
+customfield_10424: GXS (migrated)
+customfield_10425: 'Source System: (migrated)'
+customfield_10426: Security Group (migrated)
+customfield_10427: Customer Impact
+customfield_10428: Product Stream (migrated)
+customfield_10429: 'Destination System: (migrated)'
+customfield_10430: Status Summary 2 (migrated)
+customfield_10431: Map (migrated)
+customfield_10432: 'Scope: (migrated) (migrated)'
+customfield_10433: Project Code (migrated)
+customfield_10434: Dependency Level (migrated)
+customfield_10435: UPC Count (migrated)
+customfield_10436: 'Complexity: (migrated)'
+customfield_10437: Business Reason (migrated)
+customfield_10438: Target Sprint (migrated)
+customfield_10439: Image Links (migrated)
+customfield_10440: 'Country: (migrated)'
+customfield_10442: Provider Team (migrated)
+customfield_10443: DUNS Number (migrated)
+customfield_10444: 'Solution Scope: (migrated)'
+customfield_10445: Provider Portfolio (migrated)
+customfield_10446: DVN Number (migrated)
+customfield_10447: 'Solution Complexity: (migrated)'
+customfield_10449: Provider Domain (migrated)
+customfield_10450: GMM (migrated)
+customfield_10451: 'Solution Country: (migrated)'
+customfield_10452: Owned/VDF Ticket (migrated)
+customfield_10453: Provider Point of Contact (migrated)
+customfield_10454: Vendor Name (migrated)
+customfield_10455: 'Linked EPIC State: (migrated)'
+customfield_10456: 'DIV. # (migrated)'
+customfield_10457: Is Automated?
+customfield_10458: Vendor Contact Email (migrated)
+customfield_10459: 'Identified From: (migrated)'
+customfield_10460: 'Dept # (migrated)'
+customfield_10461: APO Application
+customfield_10462: Brand Name (migrated)
+customfield_10463: 'Deliverable Type: (migrated)'
+customfield_10464: 'Vendor # (migrated)'
+customfield_10465: Brand Mapped? (migrated)
+customfield_10466: 'Baseline Draft Completion: (migrated)'
+customfield_10467: Pages Setup (migrated)
+customfield_10468: SSID (migrated)
+customfield_10469: 'Baseline Review Completion: (migrated)'
+customfield_10470: UPC's Dropped Count (migrated)
+customfield_10471: Merchant Lead (migrated)
+customfield_10472: 'Target Draft Completion: (migrated)'
+customfield_10473: Blocker Reason - Level 1 (migrated)
+customfield_10474: Additional Users (migrated)
+customfield_10475: 'Target Review Completion: (migrated)'
+customfield_10476: Blocker Reason - Level 2 (migrated)
+customfield_10477: Blocker Source (migrated)
+customfield_10479: Count of Blockers - Level 1 (migrated)
+customfield_10480: Work Type (migrated)
+customfield_10481: VLL Audit UPC Count (migrated)
+customfield_10482: 'Approver 1: (migrated)'
+customfield_10483: Count of Blockers - Level 2 (migrated)
+customfield_10484: Selling Channel (migrated)
+customfield_10485: MIO UPCs Added (migrated)
+customfield_10486: 'RAGB Status: (migrated)'
+customfield_10487: SSID - Pages Completed (migrated)
+customfield_10488: Platforms (migrated)
+customfield_10489: Approved UPC Count (migrated)
+customfield_10490: 'Review Rejection Comments: (migrated)'
+customfield_10491: SSID - Pages Pending Information (migrated)
+customfield_10492: Site Components (migrated)
+customfield_10493: Item(s) (migrated)
+customfield_10494: 'SignOff Rejection Comments: (migrated)'
+customfield_10496: Sub-Domain (migrated)
+customfield_10497: Existing URL (migrated)
+customfield_10498: 'Rework Comments: (migrated)'
+customfield_10499: Test Plan / Case URL (migrated)
+customfield_10500: Production URL (migrated)
+customfield_10501: 'Actual Draft Completion: (migrated)'
+customfield_10502: Revision
+customfield_10503: Experimentation Details (migrated)
+customfield_10504: Test URL (migrated)
+customfield_10505: 'Actual Review Completion: (migrated)'
+customfield_10506: Begin Date
+customfield_10507: Integration / Perf Testing (migrated)
+customfield_10508: Owners (migrated)
+customfield_10509: 'Drafted By: (migrated)'
+customfield_10510: End Date
+customfield_10511: Business Impact (migrated)
+customfield_10512: Resolution Date (migrated)
+customfield_10513: 'Assumption Due Until: (migrated)'
+customfield_10514: Story Type
+customfield_10515: Backout Plan (migrated)
+customfield_10516: Key Stakeholders (migrated)
+customfield_10517: 'Assumption Source: (migrated)'
+customfield_10518: T-Shirt Size
+customfield_10519: Tech Lead (migrated)
+customfield_10520: Feature (migrated)
+customfield_10521: 'Assumption Impact: (migrated)'
+customfield_10522: Product Manager
+customfield_10523: Requested Start (migrated)
+customfield_10524: Epic/Theme (migrated)
+customfield_10525: 'Assumption Comments: (migrated)'
+customfield_10526: Total Story Points
+customfield_10527: Requested Completion (migrated)
+customfield_10529: 'Business Benefit: (migrated)'
+customfield_10530: Product
+customfield_10531: Stage (migrated)
+customfield_10533: 'Sponsor: (migrated)'
+customfield_10534: Program
+customfield_10535: Sprint Label (migrated)
+customfield_10536: Source URL (migrated)
+customfield_10537: 'Workaround: (migrated)'
+customfield_10538: Additional Contacts
+customfield_10539: Holiday 2X (migrated)
+customfield_10540: Total Days Spent (migrated)
+customfield_10541: 'Workaround Detail: (migrated)'
+customfield_10542: Application
+customfield_10545: 'Cross Workstream impact: (migrated)'
+customfield_10546: Booking End Date
+customfield_10547: QA Test Cases URL (migrated)
+customfield_10549: 'Initial Benefit Assessment Finding: (migrated)'
+customfield_10550: Booking Start Date
+customfield_10551: Technical Details (migrated)
+customfield_10552: Root Cause (EPS) (migrated)
+customfield_10553: 'Final Benefit Assessment Finding: (migrated)'
+customfield_10554: Data Request Type
+customfield_10555: Destination URL (migrated)
+customfield_10556: 'Priority: (migrated)'
+customfield_10557: 'Baseline Analysis Completion: (migrated)'
+customfield_10558: Deployment End Date
+customfield_10559: Performance Testing (migrated)
+customfield_10560: 'Milestone Type: (migrated)'
+customfield_10561: 'Estimated Cost: (migrated)'
+customfield_10562: Deployment Start Date
+customfield_10563: Performance Parameters (migrated)
+customfield_10564: 'Internal OR External: (migrated)'
+customfield_10565: 'Approved Cost: (migrated)'
+customfield_10566: GoLive Domain
+customfield_10567: Blocker Type (migrated)
+customfield_10568: 'Contractual?: (migrated)'
+customfield_10569: 'Number of approved changes to requirements: (migrated)'
+customfield_10570: E2E SIT Applications Required
+customfield_10571: TechSpec and Review URL (migrated)
+customfield_10572: 'Responsible Organization: (migrated)'
+customfield_10573: 'Initial Impact Assessment Finding: (migrated)'
+customfield_10574: E2E SIT Booking End Date
+customfield_10575: DEV Assignee (migrated)
+customfield_10576: 'Baseline Closure: (migrated)'
+customfield_10577: 'Detailed Impact Assessment Finding: (migrated)'
+customfield_10578: E2E SIT Booking Start Date
+customfield_10579: Requested Due Date (migrated)
+customfield_10580: 'Target Date: (migrated)'
+customfield_10581: 'Review Update: (migrated)'
+customfield_10582: E2E SIT End Date
+customfield_10583: 'Percentage Complete: (migrated)'
+customfield_10584: 'External Reference: (migrated)'
+customfield_10585: 'Actual Analysis Completion: (migrated)'
+customfield_10586: E2E SIT Start Date
+customfield_10587: Business Area
+customfield_10588: Dependency Agreed (migrated)
+customfield_10589: 'Status Narrative: (migrated)'
+customfield_10590: 'Next CAB Date: (migrated)'
+customfield_10591: Go-live Date
+customfield_10592: PRJ-ID
+customfield_10593: 'EV Weightage: (migrated)'
+customfield_10594: 'Actual Closure: (migrated)'
+customfield_10595: 'Decision Taken Date: (migrated)'
+customfield_10596: Incident Category
+customfield_10597: PROJECT TYPE
+customfield_10598: 'Review Reworked: (migrated)'
+customfield_10599: 'Step Description: (migrated)'
+customfield_10600: 'Issue Category: (migrated)'
+customfield_10601: Performance Applications Required
+customfield_10602: AI Engaged
+customfield_10603: 'Sign Off Reworked: (migrated)'
+customfield_10604: 'Expected Result: (migrated)'
+customfield_10605: 'Issue Sub Category: (migrated)'
+customfield_10606: Performance Booking End Date
+customfield_10607: RunGrowTransform
+customfield_10608: 'Earn As you Burn: (migrated)'
+customfield_10609: 'Actual Result: (migrated)'
+customfield_10610: 'Resolution Plan: (migrated)'
+customfield_10611: Budget Owner
+customfield_10612: 'Review 1 Status: (migrated)'
+customfield_10613: 'Executive Summary: (migrated)'
+customfield_10614: 'Decision Type: (migrated)'
+customfield_10615: Performance Booking Start Date
+customfield_10616: Tech VP
+customfield_10617: 'Approval 1 Status: (migrated)'
+customfield_10618: 'Current Week Progress: (migrated)'
+customfield_10619: 'KDD Criticality: (migrated)'
+customfield_10620: Performance Testing End Date
+customfield_10621: Budget Type
+customfield_10622: 'Cost: (migrated)'
+customfield_10623: 'Planned For Upcoming Week: (migrated)'
+customfield_10624: 'Decision Taker: (migrated)'
+customfield_10625: Performance Testing Start Date
+customfield_10626: 'Quality: (migrated)'
+customfield_10627: 'Decisions and Dependencies: (migrated)'
+customfield_10628: 'Decision Category: (migrated)'
+customfield_10629: GoLive Portfolio
+customfield_10631: 'Schedule: (migrated)'
+customfield_10632: 'Date: (migrated)'
+customfield_10633: 'Why this decision is needed upfront: (migrated)'
+customfield_10634: Program Manager
+customfield_10635: CSG DOMAIN
+customfield_10636: 'Scope: (migrated 2)'
+customfield_10637: 'Overall RAG Flag: (migrated)'
+customfield_10638: 'Business Process Hierarchy 1: (migrated)'
+customfield_10639: Program Name
+customfield_10640: Problem Statement
+customfield_10641: 'Execution Status: (migrated)'
+customfield_10642: 'Scope RAG Flag: (migrated)'
+customfield_10643: 'Business Process Hierarchy 2: (migrated)'
+customfield_10644: Project End Date
+customfield_10645: AI Priority
+customfield_10646: 'Is Bug Reopened: (migrated)'
+customfield_10647: 'Schedule RAG Flag: (migrated)'
+customfield_10648: 'Business Process Hierarchy 3: (migrated)'
+customfield_10649: Business Product Owner
+customfield_10650: 'Raised By: (migrated)'
+customfield_10651: 'Resource RAG Flag: (migrated)'
+customfield_10652: 'BPH Scope: (migrated)'
+customfield_10654: 'Requester Email ID: (migrated)'
+customfield_10655: 'Risk RAG Flag: (migrated)'
+customfield_10656: 'Requirement Type: (migrated)'
+customfield_10657: Project Manager
+customfield_10658: Team. (migrated)
+customfield_10659: 'Issues RAG Flag: (migrated)'
+customfield_10660: 'Requirement ID: (migrated)'
+customfield_10661: Total Budget
+customfield_10662: Severity (migrated)
+customfield_10663: 'Test Case Type: (migrated)'
+customfield_10664: 'Sign Off By: (migrated)'
+customfield_10665: Customer Facing
+customfield_10666: Found In (migrated)
+customfield_10667: 'Test Case Cycle: (migrated)'
+customfield_10668: 'Global or Local: (migrated)'
+customfield_10669: Revenue Impacting
+customfield_10670: FOB Area (migrated)
+customfield_10671: 'Test Case Priority: (migrated)'
+customfield_10672: 'Impacted Area: (migrated)'
+customfield_10673: Initiative ScoreCard
+customfield_10674: Live Date (migrated)
+customfield_10675: 'Planned Execution Date: (migrated)'
+customfield_10676: 'Business Priority: (migrated)'
+customfield_10677: Reference Architecture
+customfield_10678: Product Owner (migrated)
+customfield_10679: 'Actual Execution Date: (migrated)'
+customfield_10680: 'Requirement Created Date: (migrated)'
+customfield_10681: Confluence Link
+customfield_10682: Acceptance Criteria (migrated)
+customfield_10683: 'Risk Expiry: (migrated)'
+customfield_10684: 'Fit or Gap: (migrated)'
+customfield_10685: AI PMO Lead
+customfield_10686: QE Assignee (migrated)
+customfield_10687: Owner (migrated)
+customfield_10688: 'Solution Category: (migrated)'
+customfield_10689: DevOps Lead
+customfield_10690: Contract Due Date (migrated)
+customfield_10691: 'Escalation Level: (migrated)'
+customfield_10692: 'Impact Level: (migrated)'
+customfield_10693: Project HLD URL
+customfield_10694: Product Lead
+customfield_10695: Service Now Incident (migrated)
+customfield_10696: 'Raised Date: (migrated)'
+customfield_10697: 'Impact if not delivered on Time: (migrated)'
+customfield_10699: DELETE-ServiceNow URL (migrated)
+customfield_10700: 'Impact: (migrated)'
+customfield_10701: 'Required By Date: (migrated)'
+customfield_10702: Project Manager
+customfield_10703: Quality Lead
+customfield_10704: Action (migrated)
+customfield_10705: 'Probability: (migrated)'
+customfield_10706: 'Required From Workstream: (migrated)'
+customfield_10707: Project Start Date
+customfield_10708: Vendor Lead
+customfield_10709: Reason (migrated)
+customfield_10710: 'Risk Category: (migrated)'
+customfield_10711: 'In Sign Off Entry Date: (migrated)'
+customfield_10712: System Test Application Requirements
+customfield_10713: MWOW Lead
+customfield_10714: Resolution Notes (migrated)
+customfield_10715: 'Risk Sub Category: (migrated)'
+customfield_10716: Confidence Duplicate (migrated)
+customfield_10717: System Test End Date
+customfield_10718: Holiday Readiness Required
+customfield_10719: Knowledge Candidate (migrated)
+customfield_10720: 'Mitigation Plan: (migrated)'
+customfield_10721: Development Duplicate (migrated)
+customfield_10722: System Test Start Date
+customfield_10723: Vendor
+customfield_10724: Pending Reason (migrated)
+customfield_10725: 'Contingency Plan: (migrated)'
+customfield_10726: Resources Duplicate (migrated)
+customfield_10727: Testing Outcome
+customfield_10728: CompletionDate
+customfield_10729: SWAG (migrated)
+customfield_10730: 'Baseline Mitigation Plan Close: (migrated)'
+customfield_10731: Requirements Duplicate (migrated)
+customfield_10732: Test Manager
+customfield_10733: PGM
+customfield_10734: Confidence (migrated)
+customfield_10735: 'Target Mitigation Plan Close: (migrated)'
+customfield_10736: Contract Request Type (migrated)
+customfield_10737: Test Phase
+customfield_10738: FA
+customfield_10739: Requirements (migrated)
+customfield_10740: 'Baseline Start: (migrated)'
+customfield_10741: Private Brand Name (migrated)
+customfield_10742: Test Schedule URL
+customfield_10743: ProjectEXP
+customfield_10744: DevelopmentM (migrated)
+customfield_10745: 'Start Date: (migrated)'
+customfield_10746: FOB (migrated)
+customfield_10747: Test Strategy URL
+customfield_10748: ProjectFundCode
+customfield_10749: Resources (migrated)
+customfield_10750: 'Closure Comment: (migrated)'
+customfield_10751: Dept (migrated)
+customfield_10752: UAT Applications Required
+customfield_10753: ProjectApproval
+customfield_10754: Savings (migrated)
+customfield_10755: 'Actual Start: (migrated)'
+customfield_10756: '# of Master Contracts on Smart Sheet (migrated)'
+customfield_10757: UAT Booking End Date
+customfield_10758: ProjectFinApprover
+customfield_10759: Status Summary (migrated)
+customfield_10761: Contract R1 ETA (migrated)
+customfield_10762: UAT Booking Start Date
+customfield_10763: PA Lead
+customfield_10764: Risk (migrated)
+customfield_10765: 'Test Type: (migrated)'
+customfield_10766: '# of R1 Master Contracts (migrated)'
+customfield_10767: UAT End Date
+customfield_10768: Configuration Template (migrated)
+customfield_10769: Issues (migrated)
+customfield_10770: 'Stage Found: (migrated)'
+customfield_10771: '# of OP Master Contracts (migrated)'
+customfield_10772: UAT Start Date
+customfield_10773: AI Capability (migrated)
+customfield_10774: Story Readiness (migrated)
+customfield_10775: 'Defect Priority: (migrated)'
+customfield_10776: '# of Master Contracts Dropped (migrated)'
+customfield_10777: Urgency
+customfield_10778: Xray Revision
+customfield_10779: Xray Begin Date
+customfield_10780: Xray End Date
+customfield_10782: Detected in
+customfield_10784: Testing Environment
+customfield_10785: Customer Impact Details
+customfield_10786: MWOW Portfolio
+customfield_10787: Notes
+customfield_10788: Quarter
+customfield_10789: Corporate Goal
+customfield_10790: External issue ID
+customfield_10791: RICE - Effort
+customfield_10792: RICE - Reach
+customfield_10793: RICE - Impact
+customfield_10794: RICE - Confidence
+customfield_10795: RICE - Score
+customfield_10796: Story Points Completion Percentage
+customfield_10797: Remaining story points
+customfield_10799: Effort (hours)
+customfield_10800: New Project Key
+customfield_10801: New Project Name
+customfield_10802: Key validation
+customfield_10803: Name Validation
+customfield_10804: Project Administrators
+customfield_10805: GoLive Additional Contacts
+customfield_10812: Jira Project
+customfield_10813: GoLive Program Manager
+customfield_10814: Project Code / Name
+customfield_10815: GoLive Project Manager
+customfield_10816: Testing / Environment Type
+customfield_10817: Test Manager / Lead
+customfield_10850: Environment(s) to Book
+customfield_10851: Environment(s)
+customfield_10852: Deploy to
+customfield_10853: Dependent Environment(s)
+customfield_10854: Environment to Refresh
+customfield_10855: GCP Projects
+customfield_10856: GCP Datasets
+customfield_10857: Intake Category
+customfield_10858: Intake Category
+customfield_10859: AI Team(s) Engaged
+customfield_10860: Intake_Type
+customfield_10861: '% Complete'
+customfield_10862: PA Goal
+customfield_10863: Sentiment
+customfield_10864: Fund Type
+customfield_10897: Rational
+customfield_10930: Goals
+customfield_10931: New Confluence Space Key
+customfield_10932: New Confluence Space Name
+customfield_10933: Space Admin
+customfield_10934: Project Administrator
+customfield_10967: Jira Project Key
+customfield_11000: Business Stakeholders
+customfield_11001: Significant Milestones
+customfield_11002: Leading Indicators
+customfield_11003: Objective and Key Results (OKRs)
+customfield_11004: Business Outcomes
+customfield_11005: Non-Functional Requirements (NFRs)
+customfield_11006: Product Impacts
+customfield_11047: Namespace
+customfield_11048: Affect Version
+customfield_11050: Region
+customfield_11051: Image Link / Folder Path
+customfield_11053: Department Number
+customfield_11054: Vendor Number
+customfield_11055: FOB
+customfield_11056: Brand Name
+customfield_11057: Saved Set Number
+customfield_11058: Issue Type
+customfield_11059: Pages Approved Count
+customfield_11061: List Of Blockers
+customfield_11062: Merchant Lead
+customfield_11063: Priority
+customfield_11064: Image Link / Folder Path
+customfield_11100: Application url
+customfield_11101: Technical Lead
+customfield_11102: Project name
+customfield_11103: Is this an existing resource to edit or new resource to be created?
+customfield_11104: GCP service/resource type and name
+customfield_11105: Resource type
+customfield_11106: Resource details
+customfield_11107: SAR number
+customfield_11109: Resource type
+customfield_11113: Environment-booking-demo
+customfield_11114: Internal Seller Owner
+customfield_11115: Additional Watchers
+customfield_11116: Application/Source Type
+customfield_11117: Objective
+customfield_11118: Test Start
+customfield_11119: Item/Catalog Status
+customfield_11120: Item/Catalog Issue Type
+customfield_11121: Item/Catalog Issue Description
+customfield_11122: '# of Impacted SKUs'
+customfield_11123: Date Noticed
+customfield_11124: Seller Name
+customfield_11125: Seller Priority
+customfield_11126: Request Owner
+customfield_11127: Update Flag
+customfield_11128: New Comments
+customfield_11129: 'Reporter Area '
+customfield_11131: Needs More Info Date
+customfield_11132: Issue Diagnosis
+customfield_11133: Complete Date
+customfield_11134: Days to Triage
+customfield_11135: Triage SLA Met
+customfield_11141: Planned Start Date
+customfield_11142: Planned End Date
+customfield_11149: Work Complete Date
+customfield_11150: Total Days to Close
+customfield_11151: Active Days to Close
+customfield_11152: Application Name
+customfield_11153: Namespace
+customfield_11154: Version
+customfield_11155: Environment Name
+customfield_11158: Schedule Start Date
+customfield_11159: Schedule End Date
+customfield_11160: Region
+customfield_11161: GitLab URL
+customfield_11166: Start time
+customfield_11167: End time
+customfield_11168: Triage SLA Date
+customfield_11169: Triage Actual Date
+customfield_11170: Submission Date
+customfield_11171: Days Open
+customfield_11172: Recent Comment Mention
+customfield_11209: New *** Boards
+customfield_11210: Triage SLA Days
+customfield_11211: Business Impact ("the WHY")
+customfield_11212: What is the problem you are trying to solve ("the WHO and WHAT")?
+customfield_11213: Functional Area
+customfield_11214: Requestor Priority
+customfield_11215: Link to Completed Documentation
+customfield_11216: Request on behalf of
+customfield_11217: Reporter Area
+customfield_11218: Initial Size
+customfield_11219: Release Date
+customfield_11220: Salesforce Affected Area(s)
+customfield_11221: Channel
+customfield_11222: optional
+customfield_11223: Example cases (if available)
+customfield_11224: Link to relevant existing documentation (if available)
+customfield_11231: Is Reporting Needed?
+customfield_11232: Project name
+customfield_11233: Request Type
+customfield_11234: Actual Hours
+customfield_11235: test field
+customfield_11236: SAR number
+customfield_11237: Budget approved?
+customfield_11238: how many resources will be created/edited?
+customfield_11271: Theme
+customfield_11272: Stores Application
+customfield_11273: Business Impact
+customfield_11274: Channel
+customfield_11275: Salesforce Affected Area
+customfield_11276: Reporter Area
+customfield_11277: Initial Size
+customfield_11278: Release Date
+customfield_11279: Actual Hours
+customfield_11280: Type
+customfield_11281: Requested Go Live date
+customfield_11282: Estimate ($)
+customfield_11283: Duration in Sprints
+customfield_11284: 'Estimated start date '
+customfield_11285: Final disposition by the requester
+customfield_11287: Deploys to
+customfield_11290: Application Name
+customfield_11291: Others (Stores Application)
+customfield_11326: Description of new/updated documentation
+customfield_11327: 'Salesforce Case #'
+customfield_11364: Issue Category
+customfield_11365: Related Salesforce or ServiceNow ticket (link)
+customfield_11366: Agent Research Completed
+customfield_11367: Internal Escalation Status / Comment
+customfield_11368: Internal Consultation Required
+customfield_11369: Latest Resolution/Research Comment
+customfield_11370: Requestor Research
+customfield_11371: Resources Available
+customfield_11372: Related Salesforce or ServiceNow ticket (number)
+customfield_11373: Date Escalated
+customfield_11374: Escalated By / Internal Contact
+customfield_11375: Email Subject or Chat Name
+customfield_11376: Link to Chat Thread
+customfield_11377: XAPI automatable
+customfield_11378: XAPI Automated
+customfield_11380: Experiment Date
+customfield_11381: Project name
+customfield_11383: Contact Center Application
+customfield_11384: Requested Go Live date
+customfield_11385: Estimate ($)
+customfield_11386: Estimated Start Date
+customfield_11387: Final disposition by the requester
+customfield_11388: Supply Chain Domain
+customfield_11389: Your Team / Organization
+customfield_11390: Benefit or Impact of your request
+customfield_11391: Desired Delivery Date
+customfield_11392: Funding Available?
+customfield_11393: Other Domain
+customfield_11394: Project Keys
+customfield_11395: Is this epic for the management and creation of a new project?
+customfield_11396: New project name
+customfield_11397: Requestor Email
+customfield_11398: Funding Available?
+customfield_11399: Attachments
+customfield_11400: Days Open
+customfield_11401: Triage SLA Met
+customfield_11402: Triage SLA Days
+customfield_11403: Triage SLA Date
+customfield_11404: Triage Actual Date
+customfield_11405: Active Days to Close
+customfield_11406: Total Days to Close
+customfield_11407: Days In Progress
+customfield_11408: Days in Review
+customfield_11409: Days to Triage
+customfield_11410: Days Needing Info
+customfield_11411: Need Info End Date
+customfield_11412: Need Info Start Date
+customfield_11413: Hold End Date
+customfield_11414: Hold Start Date
+customfield_11415: Review End Date
+customfield_11416: Review Start Date
+customfield_11417: In Progress End Date
+customfield_11418: In Progress Start Date
+customfield_11419: Duration in Sprints
+customfield_11420: Days On Hold
+customfield_11421: Days On Hold
+customfield_11422: Funding Portfolio
+customfield_11423: Funding Portfolio
+customfield_11456: Retouch Complexity (Deloitte USE ONLY)
+customfield_11457: Retouch Reason (Deliotte USE ONLY)
+customfield_11459: Business Impact
+customfield_11460: Funding Portfolio
+customfield_11461: OMS Application
+customfield_11462: Desired Delivery Date
+customfield_11463: Others
+customfield_11464: OMS Applications
+customfield_11465: OMS App
+customfield_11466: OMS Apps
+customfield_11467: Funding Portfolios
+customfield_11468: ' OMS Application'
+customfield_11469: ' Team'
+customfield_11470: Other
+customfield_11471: 'Other (OMS Applications)  '
+customfield_11472: Estimate  OMS
+customfield_11473: Project ID
+customfield_11474: Team
+customfield_11475: Final disposition by the requester
+customfield_11476: Estimated Start Date
+customfield_11477: Duration in Sprints
+customfield_11478: Duration in Sprints
+customfield_11479: Request Days Open
+customfield_11480: Days Escalated
+customfield_11481: Retouch Reason
+customfield_11482: Aging (days)
+customfield_11483: DIV Number
+customfield_11485: Vendor Number
+customfield_11488: Saved Set ID Number
+customfield_11489: Image Link / Folder Path
+customfield_11493: List of Blockers
+customfield_11494: Retouch Complexity (Deloitte USE ONLY)
+customfield_11495: Retouch Reason
+customfield_11496: Saved Set ID Number
+customfield_11497: DIV Number
+customfield_11498: Department Number
+customfield_11500: FOB
+customfield_11501: Brand Name
+customfield_11502: Saved Set ID Number
+customfield_11503: Image Link / Folder Path
+customfield_11504: Merchant Lead
+customfield_11505: Issue Type
+customfield_11507: Pages Blocked Count
+customfield_11508: Image Due Date
+customfield_11509: Retouch Notes
+customfield_11510: '# of Images Retouched (Deloitte USE ONLY)'
+customfield_11511: AIL
+customfield_11512: Tech SME / Dev Contact
+customfield_11513: Criticality
+customfield_11514: Application Owner / SME
+customfield_11515: Lower Env DB Instance
+customfield_11516: Schema / Catalog
+customfield_11517: Lower Env Refresh Required
+customfield_11518: 6R Disposition
+customfield_11519: Target Grouping
+customfield_11520: Integration Counts
+customfield_11521: Application Type
+customfield_11522: Integration Type
+customfield_11523: 'Ops / Risk: SLA / KPI Note'
+customfield_11524: 'Ops / Risk: Known Risks'
+customfield_11525: Fulfillment Method
+customfield_11526: Associated Applications
+customfield_11527: Estimate ($$)
+customfield_11529: '# of Attributes Updated (Site Merch USE ONLY)'
+customfield_11530: Fiscal Year
+customfield_11563: Component
+customfield_11564: Days In Need Info
+customfield_11565: Days with SME
+customfield_11566: SME Escalation Total Days
+customfield_11567: Saved Set Page Count
+customfield_11568: Work category
+customfield_11569: Approvals
+customfield_11570: Satisfaction
+customfield_11571: Satisfaction date
+customfield_11572: Idea archived
+customfield_11573: Idea archived by
+customfield_11574: Idea archived on
+customfield_11575: Atlassian project
+customfield_11576: Atlassian project status
+customfield_11577: Insights
+customfield_11578: Comments
+customfield_11579: Linked issues
+customfield_11580: Delivery progress
+customfield_11581: Delivery status
+customfield_11582: Request Type
+customfield_11583: '# of Pages Sent to Copy'
+customfield_11584: Type of Testing
+customfield_11585: Category of Test Case
+customfield_11586: Usage Status
+customfield_11619: 'Release Date '
+customfield_11620: 'Portfolio '
+customfield_11621: 'Target Volume Target '
+customfield_11622: Test Execution Status
+customfield_11623: 'Target Volume Tested '
+customfield_11656: 'Test Volume Target '
+customfield_11657: '25% Test Result '
+customfield_11658: '75% Test Result '
+customfield_11659: '50% Test Result '
+customfield_11660: '100% Test Result '
+customfield_11661: Application/Development Assigned
+customfield_11662: 'QE Engineer Assigned '
+customfield_11695: 75% Test Result
+customfield_11696: '50% Test Result '
+customfield_11697: '25% Test Result '
+customfield_11698: '100%  Test Result '
+customfield_11731: 'Mainframe Dependency '
+customfield_11732: 'KTLO Application '
+customfield_11733: Portfolio
+customfield_11766: Application Track
+customfield_11768: Last Comment
+customfield_11769: 'Component (QEPE Field) '
+customfield_11772: Label
+customfield_11773: Label
+customfield_11774: Execution Date
+customfield_11807: RRD Copy Saved Set
+customfield_11822: AnalysisStatus
+customfield_11823: Test Case Type
+customfield_11824: Automation Candidate
+customfield_11825: Application Name
+customfield_11826: Portfolio Name
+customfield_11827: Is Automated ?
+customfield_11828: Parent_Story
+customfield_11829: Test
+customfield_11830: Automation Framework
+customfield_11831: ' #Test Executions'
+customfield_11832: '#Test Executions'
+customfield_11833: Integration Issue Type
+customfield_11834: Integration Method
+customfield_11835: Order ID (if applicable)
+customfield_11836: UPC (if applicable)
+customfield_11837: Offer SKU (if applicable)
+customfield_11870: Resolution Type
+customfield_11903: Component
+customfield_11936: Automation Why Not ?
+customfield_11937: Defect Link
+customfield_11970: Dependent
+customfield_11971: Dev Environment
+customfield_11972: QA Environment
+customfield_11973: Maintenance Task Type
+customfield_11974: Create Date
+customfield_11975: Resolve By Date
+customfield_11976: End Date Review
+customfield_11977: Start Date Review
+customfield_11978: Interface points
+customfield_11979: App Name
+customfield_12012: Business Unit/Domain
+customfield_12045: Test Plan
+customfield_12046: 'Test Set '
+customfield_12047: 'Application Epic (Application background /purpose) '
+customfield_12048: Defect(bug)
+customfield_12081: Focus Areas
+customfield_12114: Owner
+customfield_12115: Responsible Organization
+customfield_12116: Impact
+customfield_12117: Impacted Area
+customfield_12118: Application Readiness
+customfield_12119: Requestor's Name
+customfield_12120: Platform
+customfield_12121: Brand
+customfield_12122: Request Impact
+customfield_12123: Request Timing
+customfield_12124: Integration ID
+customfield_12125: 'Test Start Time (Actual) EST '
+customfield_12126: Test End Time (Actual) EST
+customfield_12159: CI/CD Deployment Process
+customfield_12192: Fiscal Year
+customfield_12193: Fiscal Year
+customfield_12228: Allocation ($)
+customfield_12229: Allocation ($)
+customfield_12230: Teams First Message
+customfield_12231: Time To Acknowledge (ENTDEVOPS)
+customfield_12232: Time To Resolved (ENTDEVOPS)
+customfield_12233: 'Performance Test Type '
+description: Description
+duedate: Due date
+environment: Environment
+fixVersions: Fix versions
+issuekey: Key
+issuelinks: Linked Issues
+issuerestriction: Restrict to
+issuetype: Issue Type
+labels: Labels
+lastViewed: Last Viewed
+parent: Parent
+priority: Priority
+progress: Progress
+project: Project
+reporter: Reporter
+resolution: Resolution
+resolutiondate: Resolved
+security: Security Level
+status: Status
+statusCategory: Status Category
+statuscategorychangedate: Status Category Changed
+subtasks: Sub-tasks
+summary: Summary
+thumbnail: Images
+timeestimate: Remaining Estimate
+timeoriginalestimate: Original estimate
+timespent: Time Spent
+timetracking: Time tracking
+updated: Updated
+versions: Affects versions
+votes: Votes
+watches: Watchers
+worklog: Log Work
+workratio: Work Ratio
