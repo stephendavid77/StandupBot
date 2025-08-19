@@ -3,6 +3,7 @@ import yaml
 from pathlib import Path
 import shutil
 import os
+from datetime import datetime, timezone, timedelta # Added this import
 
 from jira_client import JiraClient
 from analyzer import SprintAnalyzer
@@ -184,10 +185,29 @@ def run(report_type, export, skip_pdf):
 
                             for recipient in recipient_emails:
                                 print(f"Sending email to: {recipient}...")
+                                # Calculate sprint day number for email subject
+                                sprint_start_datetime = datetime.strptime(sprint_to_analyze.startDate, '%Y-%m-%dT%H:%M:%S.%fZ').replace(tzinfo=timezone.utc)
+                                now_utc = datetime.now(timezone.utc)
+                                
+                                # Calculate working days
+                                sprint_day_number = 0
+                                current_date_iter = sprint_start_datetime.date()
+                                while current_date_iter <= now_utc.date():
+                                    # Check if it's a weekday (Monday=0, Sunday=6)
+                                    if current_date_iter.weekday() < 5: # Monday to Friday
+                                        sprint_day_number += 1
+                                    current_date_iter += timedelta(days=1)
+                                
+                                if sprint_day_number < 1:
+                                    sprint_day_number = 1 # Ensure it's at least day 1
+
                                 email_success = email_report(
                                     report_path=str(report_to_email),
                                     report_content=report_content,
                                     recipient_emails=recipient,
+                                    project_name=project_key,
+                                    sprint_name=sprint_to_analyze.name,
+                                    sprint_day_number=sprint_day_number,
                                     sender_email=sender_email,
                                     sender_password=sender_password,
                                     smtp_server=smtp_server,

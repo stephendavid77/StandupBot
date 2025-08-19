@@ -6,7 +6,7 @@ from email.mime.application import MIMEApplication
 from pathlib import Path
 import markdown2
 
-def email_report(report_path, report_content, recipient_emails, sender_email=None, sender_password=None, smtp_server=None, smtp_port=None):
+def email_report(report_path, report_content, recipient_emails, project_name, sprint_name, sprint_day_number, sender_email=None, sender_password=None, smtp_server=None, smtp_port=None):
     """
     Emails the generated report.
 
@@ -92,7 +92,7 @@ def email_report(report_path, report_content, recipient_emails, sender_email=Non
     msg = MIMEMultipart()
     msg['From'] = sender_email
     msg['To'] = ", ".join(recipient_emails) # Join multiple recipients with a comma
-    msg['Subject'] = f"StandupBot Sprint Report - {Path(report_path).stem}"
+    msg['Subject'] = f"{project_name} Sprint Report - {sprint_name} - Day {sprint_day_number}"
 
     # Attach the report file
     try:
