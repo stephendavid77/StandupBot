@@ -4,7 +4,7 @@ from email_report import email_report  # Import the email sending function
 import yaml  # To load config for recipient and sender details
 
 
-def run_test_email():
+def test_email():
     print("--- Running Email Functionality Test ---")
 
     # Load configuration to get recipient and sender details
@@ -43,17 +43,20 @@ def run_test_email():
     test_report_dir = Path(__file__).parent.parent / "reports"
     os.makedirs(test_report_dir, exist_ok=True)
     test_report_path = test_report_dir / "test_email_report.md"
+    report_content = "# Test Email Report\n\nThis is a sample report to test the email sending functionality.\n\nDate: August 18, 2025\n"
     with open(test_report_path, "w") as f:
-        f.write(
-            "# Test Email Report\n\nThis is a sample report to test the email sending functionality.\n\nDate: August 18, 2025\n"
-        )
+        f.write(report_content)
     print(f"Created dummy report file: {test_report_path}")
 
     # Call the email_report function
     print("\nAttempting to send test email...")
     success = email_report(
         report_path=str(test_report_path),
+        report_content=report_content,
         recipient_emails=recipient_emails,
+        project_name="Test Project",
+        sprint_name="Test Sprint",
+        sprint_day_number=1,
         sender_email=sender_email,
         sender_password=sender_password,
         smtp_server=smtp_server,
@@ -68,7 +71,3 @@ def run_test_email():
     # Clean up the dummy report file
     # os.remove(test_report_path)
     # print(f"Cleaned up dummy report file: {test_report_path}")
-
-
-if __name__ == "__main__":
-    run_test_email()
