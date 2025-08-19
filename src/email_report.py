@@ -6,7 +6,19 @@ from email.mime.application import MIMEApplication
 from pathlib import Path
 import markdown2
 
-def email_report(report_path, report_content, recipient_emails, project_name, sprint_name, sprint_day_number, sender_email=None, sender_password=None, smtp_server=None, smtp_port=None):
+
+def email_report(
+    report_path,
+    report_content,
+    recipient_emails,
+    project_name,
+    sprint_name,
+    sprint_day_number,
+    sender_email=None,
+    sender_password=None,
+    smtp_server=None,
+    smtp_port=None,
+):
     """
     Emails the generated report.
 
@@ -28,44 +40,62 @@ def email_report(report_path, report_content, recipient_emails, project_name, sp
 
     # Try to get values from arguments (config.yaml) first
     # If not provided as argument or is an empty string, try environment variables
-    if sender_email is None or sender_email == '': # Check for None or empty string
+    if sender_email is None or sender_email == "":  # Check for None or empty string
         _env_val = os.getenv("EMAIL_SENDER_EMAIL")
-        print(f"DEBUG: os.getenv('EMAIL_SENDER_EMAIL') returned: '{_env_val}'") # Added debug print
+        print(
+            f"DEBUG: os.getenv('EMAIL_SENDER_EMAIL') returned: '{_env_val}'"
+        )  # Added debug print
         sender_email = _env_val
-        if sender_email is not None and sender_email != '': # Check for None or empty string from env
+        if (
+            sender_email is not None and sender_email != ""
+        ):  # Check for None or empty string from env
             print("- Sender Email: Retrieved from Environment Variable")
         else:
             print("- Sender Email: Not Set (neither in config nor env)")
     else:
         print("- Sender Email: Retrieved from Config")
 
-    if sender_password is None or sender_password == '': # Check for None or empty string
+    if (
+        sender_password is None or sender_password == ""
+    ):  # Check for None or empty string
         _env_val = os.getenv("EMAIL_SENDER_PASSWORD")
-        print(f"DEBUG: os.getenv('EMAIL_SENDER_PASSWORD') returned: '{_env_val}'") # Added debug print
+        print(
+            f"DEBUG: os.getenv('EMAIL_SENDER_PASSWORD') returned: '{_env_val}'"
+        )  # Added debug print
         sender_password = _env_val
-        if sender_password is not None and sender_password != '': # Check for None or empty string from env
+        if (
+            sender_password is not None and sender_password != ""
+        ):  # Check for None or empty string from env
             print("- Sender Password: Retrieved from Environment Variable")
         else:
             print("- Sender Password: Not Set (neither in config nor env)")
     else:
         print("- Sender Password: Retrieved from Config")
 
-    if smtp_server is None or smtp_server == '': # Check for None or empty string
+    if smtp_server is None or smtp_server == "":  # Check for None or empty string
         _env_val = os.getenv("EMAIL_SMTP_SERVER")
-        print(f"DEBUG: os.getenv('EMAIL_SMTP_SERVER') returned: '{_env_val}'") # Added debug print
+        print(
+            f"DEBUG: os.getenv('EMAIL_SMTP_SERVER') returned: '{_env_val}'"
+        )  # Added debug print
         smtp_server = _env_val
-        if smtp_server is not None and smtp_server != '': # Check for None or empty string from env
+        if (
+            smtp_server is not None and smtp_server != ""
+        ):  # Check for None or empty string from env
             print("- SMTP Server: Retrieved from Environment Variable")
         else:
             print("- SMTP Server: Not Set (neither in config nor env)")
     else:
         print("- SMTP Server: Retrieved from Config")
 
-    if smtp_port is None or smtp_port == '': # Check for None or empty string
+    if smtp_port is None or smtp_port == "":  # Check for None or empty string
         _env_val = os.getenv("EMAIL_SMTP_PORT")
-        print(f"DEBUG: os.getenv('EMAIL_SMTP_PORT') returned: '{_env_val}'") # Added debug print
+        print(
+            f"DEBUG: os.getenv('EMAIL_SMTP_PORT') returned: '{_env_val}'"
+        )  # Added debug print
         smtp_port = _env_val
-        if smtp_port is not None and smtp_port != '': # Check for None or empty string from env
+        if (
+            smtp_port is not None and smtp_port != ""
+        ):  # Check for None or empty string from env
             print("- SMTP Port: Retrieved from Environment Variable")
         else:
             print("- SMTP Port: Not Set (neither in config nor env)")
@@ -74,7 +104,7 @@ def email_report(report_path, report_content, recipient_emails, project_name, sp
 
     # Convert port to int, with default if still None
     if smtp_port is None:
-        smtp_port = 587 # Default if not set anywhere
+        smtp_port = 587  # Default if not set anywhere
         print(f"- SMTP Port: Defaulted to {smtp_port}")
     try:
         smtp_port = int(smtp_port)
@@ -83,22 +113,27 @@ def email_report(report_path, report_content, recipient_emails, project_name, sp
         print("--- Email Send Flow Failed ---")
         return False
 
-
-    if not all([sender_email, sender_password, smtp_server]): # smtp_port is now guaranteed to be int or cause error
-        print("Error: Email configuration missing. Please set sender_email, sender_password, and smtp_server in config.yaml or as environment variables.")
+    if not all(
+        [sender_email, sender_password, smtp_server]
+    ):  # smtp_port is now guaranteed to be int or cause error
+        print(
+            "Error: Email configuration missing. Please set sender_email, sender_password, and smtp_server in config.yaml or as environment variables."
+        )
         print("--- Email Send Flow Failed ---")
         return False
 
     msg = MIMEMultipart()
-    msg['From'] = sender_email
-    msg['To'] = ", ".join(recipient_emails) # Join multiple recipients with a comma
-    msg['Subject'] = f"{project_name} Sprint Report - {sprint_name} - Day {sprint_day_number}"
+    msg["From"] = sender_email
+    msg["To"] = ", ".join(recipient_emails)  # Join multiple recipients with a comma
+    msg["Subject"] = (
+        f"{project_name} Sprint Report - {sprint_name} - Day {sprint_day_number}"
+    )
 
     # Attach the report file
     try:
         with open(report_path, "rb") as f:
             part = MIMEApplication(f.read(), Name=Path(report_path).name)
-        part['Content-Disposition'] = f'attachment; filename="{Path(report_path).name}"'
+        part["Content-Disposition"] = f'attachment; filename="{Path(report_path).name}"'
         msg.attach(part)
         print(f"Attached report: {Path(report_path).name}")
     except FileNotFoundError:
@@ -111,7 +146,9 @@ def email_report(report_path, report_content, recipient_emails, project_name, sp
         return False
 
     # Convert Markdown report_content to HTML for the email body
-    html_body = markdown2.markdown(report_content, extras=['tables', 'fenced-code-blocks'])
+    html_body = markdown2.markdown(
+        report_content, extras=["tables", "fenced-code-blocks"]
+    )
 
     # Add basic CSS for table styling (re-using from PdfGenerator)
     css_style = """
@@ -161,33 +198,38 @@ def email_report(report_path, report_content, recipient_emails, project_name, sp
 """
 
     # Inject CSS into the HTML content
-    html_body_with_css = f"<html><head><meta charset=\"UTF-8\"><title>Sprint Report</title>{css_style}</head><body>{html_body}</body></html>"
+    html_body_with_css = f'<html><head><meta charset="UTF-8"><title>Sprint Report</title>{css_style}</head><body>{html_body}</body></html>'
 
     # Attach the HTML content to the email
-    msg.attach(MIMEText(html_body_with_css, 'html'))
+    msg.attach(MIMEText(html_body_with_css, "html"))
 
     try:
         print(f"Connecting to SMTP server: {smtp_server}:{smtp_port}...")
         with smtplib.SMTP(smtp_server, smtp_port) as server:
             server.starttls()  # Secure the connection
             server.login(sender_email, sender_password)
-            server.send_message(msg) # send_message can take a list of recipients
+            server.send_message(msg)  # send_message can take a list of recipients
         print("Email sent successfully!")
         print("--- Email Send Flow Completed Successfully ---")
         return True
     except smtplib.SMTPAuthenticationError:
-        print("Error: SMTP authentication failed. Check your sender email and password.")
+        print(
+            "Error: SMTP authentication failed. Check your sender email and password."
+        )
         print("For Gmail, you might need to use an App Password if 2FA is enabled.")
         print("--- Email Send Flow Failed ---")
         return False
     except smtplib.SMTPConnectError as e:
-        print(f"Error: Could not connect to SMTP server. Check server address and port. Error: {e}")
+        print(
+            f"Error: Could not connect to SMTP server. Check server address and port. Error: {e}"
+        )
         print("--- Email Send Flow Failed ---")
         return False
     except Exception as e:
         print(f"An unexpected error occurred while sending email: {e}")
         print("--- Email Send Flow Failed ---")
         return False
+
 
 if __name__ == "__main__":
     pass
