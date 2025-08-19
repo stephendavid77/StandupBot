@@ -5,8 +5,20 @@
 # Jira Connection Details
 jira:
   server: "https://your-company.atlassian.net"
-  user: "your-email@example.com"
+  user: "your-email@example.com" # Your Jira email address
+  # api_token: "YOUR_JIRA_PAT" # Uncomment and set your PAT here if you prefer not to use keyring.
+                               # Otherwise, the tool will attempt to retrieve it from your system's keyring.
+  # The custom field ID for Story Points in your Jira instance.
+  # You can find this using the 'discover-fields' command.
   story_points_field: "customfield_10016"
+  # The custom field ID for the Epic Link in your Jira instance.
+  # This should link an issue to its Epic (e.g., "customfield_10014" for "Epic Link"),
+  # not the Epic's name. Use 'discover-fields' to find the correct ID.
+  epic_link_field: "customfield_10014" # Example, verify with discover-fields
+  # Set to true to force a reload of Jira field mappings from the API.
+  # This is useful if your Jira instance's custom field IDs change.
+  # If false or omitted, cached fields from jira_fields.yml will be used.
+  reload_fields_from_file: false
 
 # Project Configuration
 projects:
@@ -24,15 +36,34 @@ guidelines:
   max_overdue_days: 5
   stale_issue_days: 7
   blocker_labels: ["blocker", "impediment"]
+  # List of Jira issue statuses that should be considered "cancelled" and excluded from calculations.
+  # Example: ["Cancelled", "Closed (Cancelled)", "Won't Do"]
+  cancelled_statuses: []
+  max_issues_without_fix_versions_pct: 0
 
 # Run Settings
 # -----------------
 # These settings control the default behavior of the application.
 # They can be overridden by command-line flags.
 run_settings:
-  # Default report type ('daily' or 'full')
+  # Default report type ('daily', 'full', or 'previous')
   report_type: "daily"
   # Whether to export the report by default
   export: true
   # Whether to skip PDF generation when exporting
   skip_pdf: false
+  # Whether to include the Epics section in the report (can be an expensive operation)
+  include_epics: false
+  # Whether to send the generated report via email
+  send_email_report: false
+  # The recipient email address(es) for the report (can be a single email or a list of emails)
+  email_recipient_email:
+    - "your.work.email@example.com"
+    - "another.email@example.com"
+
+# Email Sender Settings
+email_settings:
+  sender_email: "your.email@example.com" # Your email address
+  sender_password: "your_app_password" # Your app-specific password (recommended)
+  smtp_server: "smtp.gmail.com"
+  smtp_port: 587

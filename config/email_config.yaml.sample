@@ -1,0 +1,17 @@
+# Email Configuration for StandupBot
+#
+# This file provides a template for configuring email settings.
+# For security, it is highly recommended to set these values as environment variables
+# rather than directly in this file, especially for sensitive information like passwords.
+#
+# Environment variables to set:
+# EMAIL_SENDER_EMAIL: Your email address (e.g., your.email@example.com)
+# EMAIL_SENDER_PASSWORD: Your email password or an app-specific password (recommended for services like Gmail with 2FA enabled).
+# EMAIL_SMTP_SERVER: Your email provider's SMTP server (e.g., smtp.gmail.com, smtp.office365.com).
+# EMAIL_SMTP_PORT: The SMTP port, usually 587 for TLS.
+#
+# Example (if you choose to put values directly here - NOT RECOMMENDED for production):
+# sender_email: your.email@example.com
+# sender_password: your_app_password
+# smtp_server: smtp.gmail.com
+# smtp_port: 587
