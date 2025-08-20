@@ -10,90 +10,64 @@ def execute_run(config, report_type, export, skip_pdf, include_epics, send_email
     """
     Core logic for sprint analysis and report generation.
     """
+    summary = []
     reports_dir = Path(__file__).parent.parent / "reports"
     if reports_dir.exists() and reports_dir.is_dir():
-        print(f"Clearing existing reports in {reports_dir}...")
-        for item in reports_dir.iterdir():
-            if item.is_file():
-                item.unlink()
-            elif item.is_dir():
-                shutil.rmtree(item)
+        shutil.rmtree(reports_dir)
     reports_dir.mkdir(parents=True, exist_ok=True)
-    print("Reports directory ready.")
 
     try:
-        print("Initializing Jira Client...")
         jira = JiraClient(config)
-        print("Jira Client initialized.")
     except ConnectionError as e:
-        print(f"Failed to initialize Jira Client: {e}")
-        return
+        summary.append(f"Failed to initialize Jira Client: {e}")
+        return summary
 
     analyzer = SprintAnalyzer(jira, config, include_epics=include_epics)
 
     for project_config in config.get("projects", []):
         project_key = project_config["project_key"]
         board_id = project_config["board_id"]
-        print(
-            f"Preparing analysis for project: {project_key} (Board ID: {board_id})..."
-        )
 
         sprint_to_analyze = None
         if report_type == "previous":
             sprint_to_analyze = jira.get_last_closed_sprint(board_id)
-        else:  # 'daily' or 'full'
+        else:
             sprint_to_analyze = jira.get_active_sprint(board_id)
 
         if not sprint_to_analyze:
-            print(
-                f"No sprint found for analysis for project {project_key} with report type '{report_type}'. Skipping."
-            )
+            summary.append(f"No sprint found for analysis for project {project_key} with report type '{report_type}'. Skipping.")
             continue
 
-        print(
-            f"Analyzing sprint: {sprint_to_analyze.name} for project: {project_key}..."
-        )
         results = analyzer.analyze(project_config, sprint_to_analyze)
 
         if results:
-            print(f"Analysis complete for project: {project_key}. Generating report...")
+            summary.append(f"Analysis complete for project: {project_key}. Generating report...")
 
             if report_type in ["daily", "full"]:
                 from src.current_sprint_reporter import CurrentSprintReporter
-
-                reporter_instance = CurrentSprintReporter(
-                    results, config, project_config
-                )
+                reporter_instance = CurrentSprintReporter(results, config, project_config)
                 if report_type == "daily":
                     report_content = reporter_instance.generate_daily_summary()
-                else:  # 'full'
+                else:
                     report_content = reporter_instance.generate_full_report()
             elif report_type == "previous":
                 from src.previous_sprint_reporter import PreviousSprintReporter
-
-                reporter_instance = PreviousSprintReporter(
-                    results, config, project_config
-                )
+                reporter_instance = PreviousSprintReporter(results, config, project_config)
                 report_content = reporter_instance.generate_previous_sprint_report()
 
-            print("Report generated. Printing to console...")
-            print(report_content)
+            summary.append(f"Report for {project_key} generated.")
 
             if export:
-                print("Exporting report...")
                 filename = f"{project_key}_sprint_report_{report_type}"
-
                 formats = ["md"]
                 if not skip_pdf:
                     formats.append("pdf")
 
-                reporter_instance.export_report(
-                    report_content, filename=filename, formats=formats
-                )
-                print("Report export complete.")
+                exported_files = reporter_instance.export_report(report_content, filename=filename, formats=formats)
+                for f in exported_files:
+                    summary.append(f"Report exported to {f}")
 
                 if send_email_report:
-                    print("Attempting to send email report...")
                     report_to_email = Path(reports_dir) / f"{filename}.md"
                     if not skip_pdf:
                         pdf_report_path = Path(reports_dir) / f"{filename}.pdf"
@@ -114,21 +88,14 @@ def execute_run(config, report_type, export, skip_pdf, include_epics, send_email
                                 recipient_emails = [recipient_emails]
 
                             for recipient in recipient_emails:
-                                print(f"Sending email to: {recipient}...")
-                                sprint_start_datetime = datetime.strptime(
-                                    sprint_to_analyze.startDate, "%Y-%m-%dT%H:%M:%S.%fZ"
-                                ).replace(tzinfo=timezone.utc)
+                                sprint_start_datetime = datetime.strptime(sprint_to_analyze.startDate, "%Y-%m-%dT%H:%M:%S.%fZ").replace(tzinfo=timezone.utc)
                                 now_utc = datetime.now(timezone.utc)
-
                                 sprint_day_number = 0
                                 current_date_iter = sprint_start_datetime.date()
                                 while current_date_iter <= now_utc.date():
-                                    if (
-                                        current_date_iter.weekday() < 5
-                                    ):  # Monday to Friday
+                                    if current_date_iter.weekday() < 5:
                                         sprint_day_number += 1
                                     current_date_iter += timedelta(days=1)
-
                                 if sprint_day_number < 1:
                                     sprint_day_number = 1
 
@@ -145,24 +112,16 @@ def execute_run(config, report_type, export, skip_pdf, include_epics, send_email
                                     smtp_port=smtp_port,
                                 )
                                 if email_success:
-                                    print(
-                                        f"Email report sent successfully to {recipient}."
-                                    )
+                                    summary.append(f"Email report sent successfully to {recipient}.")
                                 else:
-                                    print(
-                                        f"Failed to send email report to {recipient}."
-                                    )
+                                    summary.append(f"Failed to send email report to {recipient}.")
                         else:
-                            print(
-                                "email_recipient_email not set in config.yaml. Skipping email report."
-                            )
+                            summary.append("email_recipient_email not set in config.yaml. Skipping email report.")
                     else:
-                        print(
-                            f"Report file for email not found at {report_to_email}. Skipping email."
-                        )
+                        summary.append(f"Report file for email not found at {report_to_email}. Skipping email.")
             else:
-                print("Email report not sent as export is disabled.")
+                summary.append("Report generation complete. Export was not enabled.")
         else:
-            print(
-                f"No analysis results for project: {project_key}. Skipping report generation."
-            )
+            summary.append(f"No analysis results for project: {project_key}. Skipping report generation.")
+            
+    return summary

@@ -4,11 +4,13 @@ A web application to connect to Jira and get a daily summary of the current spri
 
 ## Features
 
-- Web-based UI for easy report generation.
-- Dockerized for easy setup and deployment.
-- Highly configurable through a `config.yaml` file.
-- Generates reports in Markdown and PDF format.
-- Can send reports via email.
+-   **Web-based UI:** An intuitive interface for easy report generation.
+-   **Dockerized:** For easy setup and deployment.
+-   **Highly Configurable:** Use a `config.yaml` file to manage all your settings.
+-   **Multiple Report Formats:** Generates reports in Markdown and PDF format.
+-   **Email Integration:** Can send reports via email.
+-   **Engaging Loading Screen:** While you wait, the UI displays an animated timer and cycles through a list of interesting facts.
+-   **Graceful Fallbacks:** Provides a basic loading message even if JavaScript is disabled.
 
 ## Pre-requisites
 
@@ -46,7 +48,14 @@ To run the application, you need to provide your Jira credentials. You can do th
 
 #### Option A: Using Environment Variables (Recommended)
 
-This is the most secure and flexible method. Pass your Jira email and Personal Access Token (PAT) as environment variables to the `docker run` command. Make sure your local `JIRA_EMAIL` and `JIRA_API_TOKEN` environment variables are set.
+This is the most secure and flexible method. Pass your Jira and email credentials as environment variables to the `docker run` command. Make sure the following environment variables are set in your local terminal:
+
+-   `JIRA_EMAIL`
+-   `JIRA_API_TOKEN`
+-   `EMAIL_SENDER_EMAIL` (only required if sending email)
+-   `EMAIL_SENDER_PASSWORD` (only required if sending email)
+-   `EMAIL_SMTP_SERVER` (only required if sending email)
+-   `EMAIL_SMTP_PORT` (only required if sending email)
 
 ```bash
 docker run -p 8000:8000 \
@@ -54,6 +63,10 @@ docker run -p 8000:8000 \
   -v $(pwd)/reports:/app/reports \
   -e JIRA_EMAIL=$JIRA_EMAIL \
   -e JIRA_API_TOKEN=$JIRA_API_TOKEN \
+  -e EMAIL_SENDER_EMAIL=$EMAIL_SENDER_EMAIL \
+  -e EMAIL_SENDER_PASSWORD=$EMAIL_SENDER_PASSWORD \
+  -e EMAIL_SMTP_SERVER=$EMAIL_SMTP_SERVER \
+  -e EMAIL_SMTP_PORT=$EMAIL_SMTP_PORT \
   standup-bot
 ```
 
@@ -62,14 +75,7 @@ docker run -p 8000:8000 \
 If you prefer not to use environment variables, you can hardcode your credentials in the `config/config.yaml` file. **Note:** This is less secure. Do not commit this file with your credentials to a public repository.
 
 1.  Open `config/config.yaml`.
-2.  Under the `jira` section, fill in your `user` and `api_token`:
-
-    ```yaml
-jira:
-  server: "https://your-company.atlassian.net"
-  user: "your-email@example.com"
-  api_token: "YOUR_JIRA_PAT"
-```
+2.  Under the `jira` and `email_settings` sections, fill in your credentials.
 
 3.  Run the container without the `-e` flags:
 
@@ -87,6 +93,14 @@ Once the container is running, open your web browser and navigate to:
 [http://localhost:8000](http://localhost:8000)
 
 You can now configure and run your reports from the web interface.
+
+## Troubleshooting
+
+-   **`WORKER TIMEOUT` Error:** If you see a worker timeout error in the logs, it means the report generation is taking longer than the default timeout. The current timeout is set to 3 minutes. If you need to increase it further, you can modify the `--timeout` value in the `CMD` instruction of the `Dockerfile`.
+
+-   **`JiraError HTTP 503`:** This is a "Service Unavailable" error from the Jira server. It means Jira is temporarily down or overloaded. Check the [Atlassian Status Page](https://status.atlassian.com/) and try again later.
+
+-   **`JSONDecodeError`:** If you encounter this error, it means the `interesting_facts.json` file has a syntax error. Please ensure the file contains valid JSON.
 
 ## CLI Usage (Optional)
 

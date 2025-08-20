@@ -17,7 +17,8 @@ COPY . .
 EXPOSE 8000
 
 # Define environment variable
+ENV PYTHONUNBUFFERED=1
 ENV NAME="World"
 
 # Run app.py when the container launches
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "app:app"]
+CMD ["gunicorn", "--bind", "0.0.0.0:8000", "--timeout", "180", "app:app"]

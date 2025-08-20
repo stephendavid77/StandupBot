@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from pdf_generator import PdfGenerator
+from src.pdf_generator import PdfGenerator
 
 
 class Reporter:
@@ -34,6 +34,7 @@ class Reporter:
         """
         reports_dir = Path(__file__).parent.parent / "reports"
         os.makedirs(reports_dir, exist_ok=True)
+        exported_files = []
 
         print(f"Exporting report to {reports_dir.resolve()}...")
         for fmt in formats:
@@ -42,10 +43,13 @@ class Reporter:
                 with open(file_path, "w") as f:
                     f.write(report_content)
                 print(f"Report exported to {file_path.resolve()}")
+                exported_files.append(str(file_path.resolve()))
             elif fmt == "pdf":
                 pdf_file_path = reports_dir / f"{filename}.pdf"
                 pdf_generator = PdfGenerator()
                 pdf_generator.generate_pdf(report_content, pdf_file_path)
+                exported_files.append(str(pdf_file_path.resolve()))
             else:
                 print(f"Format '{fmt}' not supported yet.")
         print("Report export process complete.")
+        return exported_files

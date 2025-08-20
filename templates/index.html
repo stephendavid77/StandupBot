@@ -5,8 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Standup Bot</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9999;
+            display: none;
+            color: white;
+            text-align: center;
+        }
+        .loader-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .timer-container {
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        #time-elapsed {
+            animation: pulse 2s infinite;
+        }
+        .fact-container {
+            margin-top: 20px;
+            font-style: italic;
+            font-size: 1.2em;
+        }
+        /* Fallback for no JavaScript */
+        .noscript-loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 9998;
+            color: white;
+            text-align: center;
+            padding-top: 40vh;
+        }
+    </style>
 </head>
 <body>
+    <noscript>
+        <div class="noscript-loader">
+            <h2>Processing request, please wait...</h2>
+            <p>Enable JavaScript for a better experience with live updates.</p>
+        </div>
+    </noscript>
+
+    <div id="loading-overlay">
+        <div class="loader-content">
+            <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+            <h2>Processing request, please wait...</h2>
+            <div class="timer-container">
+                Time Elapsed: <span id="time-elapsed">00:00</span>
+            </div>
+            <div class="fact-container" id="interesting-fact">
+                <p>Did you know?</p>
+                <p id="fact-text"></p>
+            </div>
+        </div>
+    </div>
+
     <div class="container mt-5">
         <h1>Standup Bot</h1>
         <p>Configure and run your sprint reports.</p>
@@ -21,7 +101,7 @@
           {% endif %}
         {% endwith %}
 
-        <form action="/run" method="post">
+        <form id="report-form" action="/run" method="post">
             <div class="form-group">
                 <label for="report_type">Report Type</label>
                 <select class="form-control" id="report_type" name="report_type">
@@ -57,7 +137,7 @@
                 <small class="form-text text-muted">Comma-separated list of email addresses.</small>
             </div>
 
-            <button type="submit" class="btn btn-primary">Run Report</button>
+            <button id="run-report-btn" type="submit" class="btn btn-primary">Run Report</button>
         </form>
 
         <h2 class="mt-5">Projects</h2>
@@ -67,5 +147,77 @@
             {% endfor %}
         </ul>
     </div>
+
+    <script>
+        const facts = {{ interesting_facts|tojson }};
+        const form = document.getElementById('report-form');
+        const overlay = document.getElementById('loading-overlay');
+        const factText = document.getElementById('fact-text');
+        const timeElapsedText = document.getElementById('time-elapsed');
+        const runButton = document.getElementById('run-report-btn');
+        let factInterval;
+        let timerInterval;
+
+        function showRandomFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            factText.textContent = facts[randomIndex];
+        }
+
+        function updateTimer(startTime) {
+            const now = new Date();
+            const elapsed = Math.floor((now - startTime) / 1000);
+            const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+            const seconds = String(elapsed % 60).padStart(2, '0');
+            timeElapsedText.textContent = `${minutes}:${seconds}`;
+        }
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            overlay.style.display = 'block';
+            runButton.disabled = true;
+            runButton.textContent = 'Processing...';
+            
+            // Start timers
+            const startTime = new Date();
+            showRandomFact();
+            factInterval = setInterval(showRandomFact, 5000);
+            timerInterval = setInterval(() => updateTimer(startTime), 1000);
+
+            const formData = new FormData(form);
+
+            fetch('/run', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                // When the server responds, redirect to the home page.
+                // The flash message from the server will be displayed after the redirect.
+                window.location.href = '/';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                // In case of an error, re-enable the form and hide the overlay
+                overlay.style.display = 'none';
+                runButton.disabled = false;
+                runButton.textContent = 'Run Report';
+                clearInterval(factInterval);
+                clearInterval(timerInterval);
+                alert('An unexpected error occurred. Please try again.');
+            });
+        });
+
+        // Optional: If you want to hide the loader when the user navigates back to the page
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                overlay.style.display = 'none';
+                runButton.disabled = false;
+                runButton.textContent = 'Run Report';
+                clearInterval(factInterval);
+                clearInterval(timerInterval);
+            }
+        });
+    </script>
+
 </body>
 </html>

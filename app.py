@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 import yaml
+import json
 from pathlib import Path
 from src.runner import execute_run
 from src.jira_client import JiraClient
@@ -19,7 +20,12 @@ def index():
     config = get_config()
     run_settings = config.get('run_settings', {})
     projects = config.get('projects', [])
-    return render_template('index.html', run_settings=run_settings, projects=projects)
+    
+    facts_path = Path(__file__).parent / "interesting_facts.json"
+    with open(facts_path, "r") as f:
+        interesting_facts = json.load(f)["facts"]
+    
+    return render_template('index.html', run_settings=run_settings, projects=projects, interesting_facts=interesting_facts)
 
 @app.route('/run', methods=['POST'])
 def run_report():
@@ -37,8 +43,9 @@ def run_report():
             config['jira'] = {}
         config['jira']['field_mappings'] = jira_fields
 
-        execute_run(config, report_type, export, skip_pdf, include_epics, send_email_report)
-        flash('Report generation finished successfully!', 'success')
+        summary = execute_run(config, report_type, export, skip_pdf, include_epics, send_email_report)
+        for message in summary:
+            flash(message, 'success')
     except Exception as e:
         flash(f"An error occurred: {e}", 'danger')
 
