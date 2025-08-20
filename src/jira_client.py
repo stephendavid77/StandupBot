@@ -228,3 +228,33 @@ class JiraClient:
         except JIRAError as e:
             print(f"Error fetching fields from Jira: {e.text}")
             return []
+
+    def load_jira_fields(self):
+        jira_fields_path = Path(__file__).parent.parent / "jira_fields.yml"
+        jira_fields = {}
+
+        if jira_fields_path.exists() and jira_fields_path.stat().st_size > 0:
+            with open(jira_fields_path, "r") as f:
+                jira_fields = yaml.safe_load(f) or {}
+
+        reload_fields = self.config.get("reload_fields_from_file", False)
+
+        if reload_fields or not jira_fields:
+            print("Reloading Jira fields from API...")
+            try:
+                fetched_fields = self.get_all_fields()
+                jira_fields = {field["id"]: field["name"] for field in fetched_fields}
+                with open(jira_fields_path, "w") as f:
+                    yaml.dump(jira_fields, f, default_flow_style=False, sort_keys=True)
+                print(f"Successfully reloaded {len(jira_fields)} Jira fields.")
+            except Exception as e:
+                print(
+                    f"Error reloading Jira fields from API: {e}. Using cached fields if available."
+                )
+                if not jira_fields:
+                    print("No cached Jira fields available. Exiting.")
+                    exit(1)
+        else:
+            print("Using cached Jira fields from jira_fields.yml.")
+
+        return jira_fields

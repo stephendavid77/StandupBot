@@ -3,3 +3,6 @@ pyyaml
 click
 keyring
 md-to-pdf
+Flask
+gunicorn
+markdown2

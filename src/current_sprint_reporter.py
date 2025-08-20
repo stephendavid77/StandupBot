@@ -4,7 +4,7 @@ import subprocess
 import sys
 from datetime import datetime, timezone
 import pytz
-from reporter import Reporter  # Import the base Reporter class
+from src.reporter import Reporter  # Import the base Reporter class
 
 
 class CurrentSprintReporter(Reporter):  # Inherit from Reporter
