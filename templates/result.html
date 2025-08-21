@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Results - Standup Bot</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Report Generation Complete</h1>
+        <p>Your requested reports have been generated successfully.</p>
+
+        {% if exported_files %}
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h5 class="card-title">Downloads</h5>
+                    <p>Click the links below to download your reports.</p>
+                    <ul class="list-group list-group-flush">
+                        {% for file in exported_files %}
+                            <li class="list-group-item">
+                                <a href="{{ url_for('download_file', filename=file) }}">{{ file }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Email Report</h5>
+                <button id="send-email-btn" class="btn btn-secondary">Send Email</button>
+                <form id="email-form" action="/send_email" method="post" class="mt-3" style="display: none;">
+                    {% for file in exported_files %}
+                        <input type="hidden" name="files_to_send" value="{{ file }}">
+                    {% endfor %}
+                    <div id="email-inputs">
+                        <div class="input-group mb-2">
+                            <input type="email" class="form-control" name="recipient_emails" placeholder="Recipient Email" required>
+                            <div class="input-group-append">
+                                <button type="button" class="btn btn-success" id="add-email-btn">+</button>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Operation Summary</h5>
+                <ul class="list-group list-group-flush">
+                    {% for message in summary %}
+                        <li class="list-group-item">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+        <a href="/" class="btn btn-primary mt-3">Back to Home</a>
+    </div>
+
+    <script>
+        const sendEmailBtn = document.getElementById('send-email-btn');
+        const emailForm = document.getElementById('email-form');
+        const addEmailBtn = document.getElementById('add-email-btn');
+        const emailInputs = document.getElementById('email-inputs');
+
+        sendEmailBtn.addEventListener('click', function() {
+            emailForm.style.display = 'block';
+            sendEmailBtn.style.display = 'none';
+        });
+
+        addEmailBtn.addEventListener('click', function() {
+            const newEmailInput = `
+                <div class="input-group mb-2">
+                    <input type="email" class="form-control" name="recipient_emails" placeholder="Recipient Email" required>
+                </div>
+            `;
+            emailInputs.insertAdjacentHTML('beforeend', newEmailInput);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+<style>
+    #loading-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 9999;
+        display: none;
+        color: white;
+        text-align: center;
+    }
+    .loader-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .timer-container {
+        margin-top: 20px;
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    #time-elapsed {
+        animation: pulse 2s infinite;
+    }
+    .fact-container {
+        margin-top: 20px;
+        font-style: italic;
+        font-size: 1.2em;
+    }
+</style>
+
+<div id="loading-overlay">
+    <div class="loader-content">
+        <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+        <h2>Processing request, please wait...</h2>
+        <div class="timer-container">
+            Time Elapsed: <span id="time-elapsed">00:00</span>
+        </div>
+        <div class="fact-container" id="interesting-fact">
+            <p>Did you know?</p>
+            <p id="fact-text"></p>
+        </div>
+    </div>
+</div>
+
+<script>
+    const facts = {{ interesting_facts|tojson }};
+    const form = document.getElementById('report-form');
+    const overlay = document.getElementById('loading-overlay');
+    const factText = document.getElementById('fact-text');
+    const timeElapsedText = document.getElementById('time-elapsed');
+    const runButton = document.getElementById('run-report-btn');
+    let timerInterval;
+
+    function showRandomFact() {
+        const randomIndex = Math.floor(Math.random() * facts.length);
+        factText.textContent = facts[randomIndex];
+    }
+
+    function updateLoader(startTime) {
+        const now = new Date();
+        const elapsed = Math.floor((now - startTime) / 1000);
+        const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
+        const seconds = String(elapsed % 60).padStart(2, '0');
+        timeElapsedText.textContent = `${minutes}:${seconds}`;
+
+        if (elapsed > 0 && elapsed % 5 === 0) {
+            showRandomFact();
+        }
+    }
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        overlay.style.display = 'block';
+        runButton.disabled = true;
+        runButton.textContent = 'Processing...';
+        
+        const startTime = new Date();
+        showRandomFact();
+        timerInterval = setInterval(() => updateLoader(startTime), 1000);
+
+        const formData = new FormData(form);
+
+        fetch('/run', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(html => {
+            document.open();
+            document.write(html);
+            document.close();
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            overlay.style.display = 'none';
+            runButton.disabled = false;
+            runButton.textContent = 'Run Report';
+            clearInterval(timerInterval);
+            alert('An unexpected error occurred. Please try again.');
+        });
+    });
+
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            overlay.style.display = 'none';
+            runButton.disabled = false;
+            runButton.textContent = 'Run Report';
+            clearInterval(timerInterval);
+        }
+    });
+</script>

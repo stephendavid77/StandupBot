@@ -2,8 +2,12 @@ jira
 pyyaml
 click
 keyring
-md-to-pdf
 Flask
 gunicorn
 markdown2
 pytz
+openpyxl
+Flask-SQLAlchemy
+Flask-Login
+Werkzeug
+cryptography

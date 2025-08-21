@@ -6,218 +6,99 @@
     <title>Standup Bot</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        #loading-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 9999;
-            display: none;
-            color: white;
-            text-align: center;
-        }
-        .loader-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        .timer-container {
-            margin-bottom: 20px;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                transform: scale(1);
-            }
-        }
-        #time-elapsed {
-            animation: pulse 2s infinite;
-        }
-        .fact-container {
-            margin-top: 20px;
-            font-style: italic;
-            font-size: 1.2em;
-        }
-        /* Fallback for no JavaScript */
-        .noscript-loader {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 9998;
-            color: white;
-            text-align: center;
-            padding-top: 40vh;
+        .description-box {
+            border: 1px solid #eee;
+            padding: 15px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
         }
     </style>
 </head>
 <body>
-    <noscript>
-        <div class="noscript-loader">
-            <h2>Processing request, please wait...</h2>
-            <p>Enable JavaScript for a better experience with live updates.</p>
-        </div>
-    </noscript>
-
-    <div id="loading-overlay">
-        <div class="loader-content">
-            <div class="spinner-border text-light" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
-            <h2>Processing request, please wait...</h2>
-            <div class="timer-container">
-                Time Elapsed: <span id="time-elapsed">00:00</span>
-            </div>
-            <div class="fact-container" id="interesting-fact">
-                <p>Did you know?</p>
-                <p id="fact-text"></p>
-            </div>
-        </div>
-    </div>
-
     <div class="container mt-5">
         <h1>Standup Bot</h1>
         <p>Configure and run your sprint reports.</p>
 
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            {% for category, message in messages %}
-              <div class="alert alert-{{ category }}" role="alert">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-        {% endwith %}
-
         <form id="report-form" action="/run" method="post">
             <div class="form-group">
-                <label for="report_type">Report Type</label>
+                <label for="report_type"><h4>Select Report Type</h4></label>
                 <select class="form-control" id="report_type" name="report_type">
-                    <option value="daily" {% if run_settings.report_type == 'daily' %}selected{% endif %}>Daily</option>
-                    <option value="full" {% if run_settings.report_type == 'full' %}selected{% endif %}>Full</option>
-                    <option value="previous" {% if run_settings.report_type == 'previous' %}selected{% endif %}>Previous</option>
+                    <option value="daily">Daily Standup Summary</option>
+                    <option value="full">Complete Sprint Analysis</option>
+                    <option value="previous">Previous Sprint Retrospective</option>
                 </select>
+                <div class="description-box" id="report-type-description">
+                    Select a report type to see a description.
+                </div>
             </div>
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="export" name="export" {% if run_settings.export %}checked{% endif %}>
-                <label class="form-check-label" for="export">Export Report</label>
+            <hr class="my-4">
+
+            <h4>Select Projects</h4>
+            <div id="project-list">
+                {% for project in projects %}
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="project-{{ project.project_key }}" name="selected_projects" value="{{ project.project_key }}" checked>
+                        <label class="form-check-label" for="project-{{ project.project_key }}">{{ project.project_key }} (Board ID: {{ project.board_id }})</label>
+                    </div>
+                {% endfor %}
             </div>
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="skip_pdf" name="skip_pdf" {% if run_settings.skip_pdf %}checked{% endif %}>
-                <label class="form-check-label" for="skip_pdf">Skip PDF Generation</label>
-            </div>
+            <div id="new-projects"></div>
 
+            <button type="button" class="btn btn-secondary btn-sm" id="add-project-btn">+ Add Project</button>
+
+            <hr class="my-4">
+
+            <h4>Options</h4>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="include_epics" name="include_epics" {% if run_settings.include_epics %}checked{% endif %}>
-                <label class="form-check-label" for="include_epics">Include Epics</label>
+                <label class="form-check-label" for="include_epics">Include Epic Information</label>
             </div>
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="send_email_report" name="send_email_report" {% if run_settings.send_email_report %}checked{% endif %}>
-                <label class="form-check-label" for="send_email_report">Send Email Report</label>
-            </div>
+            <hr class="my-4">
 
-            <div class="form-group">
-                <label for="email_recipient_email">Recipient Emails</label>
-                <input type="text" class="form-control" id="email_recipient_email" name="email_recipient_email" value="{{ run_settings.email_recipient_email|join(', ') }}">
-                <small class="form-text text-muted">Comma-separated list of email addresses.</small>
-            </div>
-
-            <button id="run-report-btn" type="submit" class="btn btn-primary">Run Report</button>
+            <button id="run-report-btn" type="submit" class="btn btn-success btn-lg btn-block">Generate Report</button>
         </form>
-
-        <h2 class="mt-5">Projects</h2>
-        <ul class="list-group">
-            {% for project in projects %}
-                <li class="list-group-item">{{ project.project_key }} (Board ID: {{ project.board_id }})</li>
-            {% endfor %}
-        </ul>
     </div>
 
+    {% include 'loader.html' %}
+
     <script>
-        const facts = {{ interesting_facts|tojson }};
-        const form = document.getElementById('report-form');
-        const overlay = document.getElementById('loading-overlay');
-        const factText = document.getElementById('fact-text');
-        const timeElapsedText = document.getElementById('time-elapsed');
-        const runButton = document.getElementById('run-report-btn');
-        let factInterval;
-        let timerInterval;
+        const reportDescriptions = {
+            "daily": "A concise summary perfect for daily stand-ups, highlighting progress, blockers, and risks.",
+            "full": "A comprehensive analysis of the current sprint, including hygiene details and workload distribution.",
+            "previous": "A retrospective report on the last completed sprint, focusing on performance and outcomes."
+        };
 
-        function showRandomFact() {
-            const randomIndex = Math.floor(Math.random() * facts.length);
-            factText.textContent = facts[randomIndex];
+        const reportTypeSelect = document.getElementById('report_type');
+        const reportTypeDescription = document.getElementById('report-type-description');
+        const addProjectBtn = document.getElementById('add-project-btn');
+        const newProjectsContainer = document.getElementById('new-projects');
+        let projectCounter = 0;
+
+        function updateDescription() {
+            reportTypeDescription.textContent = reportDescriptions[reportTypeSelect.value];
         }
 
-        function updateTimer(startTime) {
-            const now = new Date();
-            const elapsed = Math.floor((now - startTime) / 1000);
-            const minutes = String(Math.floor(elapsed / 60)).padStart(2, '0');
-            const seconds = String(elapsed % 60).padStart(2, '0');
-            timeElapsedText.textContent = `${minutes}:${seconds}`;
-        }
+        reportTypeSelect.addEventListener('change', updateDescription);
+        updateDescription();
 
-        form.addEventListener('submit', function(event) {
-            event.preventDefault(); // Prevent default form submission
-
-            overlay.style.display = 'block';
-            runButton.disabled = true;
-            runButton.textContent = 'Processing...';
-            
-            // Start timers
-            const startTime = new Date();
-            showRandomFact();
-            factInterval = setInterval(showRandomFact, 5000);
-            timerInterval = setInterval(() => updateTimer(startTime), 1000);
-
-            const formData = new FormData(form);
-
-            fetch('/run', {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => {
-                // When the server responds, redirect to the home page.
-                // The flash message from the server will be displayed after the redirect.
-                window.location.href = '/';
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                // In case of an error, re-enable the form and hide the overlay
-                overlay.style.display = 'none';
-                runButton.disabled = false;
-                runButton.textContent = 'Run Report';
-                clearInterval(factInterval);
-                clearInterval(timerInterval);
-                alert('An unexpected error occurred. Please try again.');
-            });
-        });
-
-        // Optional: If you want to hide the loader when the user navigates back to the page
-        window.addEventListener('pageshow', function(event) {
-            if (event.persisted) {
-                overlay.style.display = 'none';
-                runButton.disabled = false;
-                runButton.textContent = 'Run Report';
-                clearInterval(factInterval);
-                clearInterval(timerInterval);
-            }
+        addProjectBtn.addEventListener('click', function() {
+            projectCounter++;
+            const newProjectHtml = `
+                <div class="row mt-2">
+                    <div class="col">
+                        <input type="text" class="form-control" name="new_project_key_${projectCounter}" placeholder="Project Key (e.g., PROJ)" required>
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" name="new_board_id_${projectCounter}" placeholder="Board ID (e.g., 123)" required>
+                    </div>
+                </div>
+            `;
+            newProjectsContainer.insertAdjacentHTML('beforeend', newProjectHtml);
         });
     </script>
-
 </body>
 </html>

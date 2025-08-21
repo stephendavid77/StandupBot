@@ -1,55 +1,35 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
-import yaml
-import json
-from pathlib import Path
-from src.runner import execute_run
-from src.jira_client import JiraClient
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
+from flask_login import LoginManager
+import logging
+
+from src.services.jira_service import JiraClient
+from src.services.email_service import email_report
+
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
 
-def get_config():
-    config_path = Path(__file__).parent / "config/config.yaml"
-    if not config_path.exists():
-        config_path = Path(__file__).parent / "config/config.yaml.sample"
-    with open(config_path, "r") as f:
-        return yaml.safe_load(f)
+# Database Configuration
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db.init_app(app)
 
-@app.route('/')
-def index():
-    config = get_config()
-    run_settings = config.get('run_settings', {})
-    projects = config.get('projects', [])
-    
-    facts_path = Path(__file__).parent / "interesting_facts.json"
-    with open(facts_path, "r") as f:
-        interesting_facts = json.load(f)["facts"]
-    
-    return render_template('index.html', run_settings=run_settings, projects=projects, interesting_facts=interesting_facts)
+# Flask-Login Configuration
+login_manager = LoginManager(app)
+login_manager.login_view = 'auth.login'
 
-@app.route('/run', methods=['POST'])
-def run_report():
-    report_type = request.form.get('report_type')
-    export = 'export' in request.form
-    skip_pdf = 'skip_pdf' in request.form
-    include_epics = 'include_epics' in request.form
-    send_email_report = 'send_email_report' in request.form
+# User Loader for Flask-Login
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
-    try:
-        config = get_config()
-        jira_client = JiraClient(config)
-        jira_fields = jira_client.load_jira_fields()
-        if 'jira' not in config:
-            config['jira'] = {}
-        config['jira']['field_mappings'] = jira_fields
-
-        summary = execute_run(config, report_type, export, skip_pdf, include_epics, send_email_report)
-        for message in summary:
-            flash(message, 'success')
-    except Exception as e:
-        flash(f"An error occurred: {e}", 'danger')
-
-    return redirect(url_for('index'))
+# Register Blueprints
+app.register_blueprint(auth_bp, url_prefix='/')
+app.register_blueprint(main_bp, url_prefix='/')
 
 if __name__ == '__main__':
+    with app.app_context():
+        db.create_all()
     app.run(debug=True, host='0.0.0.0')
